@@ -35,3 +35,14 @@ value += "#"
 	console.log(value);
 }
 
+// Шахматная доска
+value = "";
+var grid = "#";
+for (var i = 0; i <= 64 - 9; i++) {
+	if (i % 7 == 0) {
+		value += "\n" + grid;	
+	}
+	grid = (grid == " ") ? "#" : " ";	
+	value += grid;
+}
+console.log(value);
