@@ -31,7 +31,7 @@ for (var i = 1; i <= 20; i++) {
 // Треугольник #
 value = ""
 for (var i = 1; i <= 7; i++) {
-value += "#"
+	value += "#";
 	console.log(value);
 }
 
