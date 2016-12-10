@@ -31,14 +31,13 @@ for (var i = 1; i <= 20; i++) {
 // Треугольник #
 value = ""
 for (var i = 1; i <= 7; i++) {
-	value += "#";
-	console.log(value);
+	console.log(value += "#");
 }
 
 // Шахматная доска
 value = "";
 var grid = "#";
-for (var i = 0; i <= 64 - 9; i++) {
+for (var i = 0; i <= 55; i++) {
 	if (i % 7 == 0) {
 		value += "\n" + grid;	
 	}
