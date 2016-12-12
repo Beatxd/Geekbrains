@@ -43,6 +43,6 @@ function countChar(string, smbl){
 	return result;
 }
 quest = prompt("Введите строку");
-ansvr = prompt("Какой символ искать?")
+ansvr = prompt("Какой символ искать?");
 b = countChar(quest, ansvr);
 console.log("Количество искомых символов = " + b);
