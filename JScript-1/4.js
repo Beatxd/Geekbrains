@@ -1,7 +1,6 @@
 // Первая часть
 function min(a, b){
-	var result = (a <= b) ? a : b;
-	return result;
+	return (a <= b) ? a : b;
 }
 console.log(min(3, 10));
 console.log(min(0, -10));
@@ -46,3 +45,25 @@ quest = prompt("Введите строку");
 ansvr = prompt("Какой символ искать?");
 b = countChar(quest, ansvr);
 console.log("Количество искомых символов = " + b);
+
+// Третья часть
+// * Ноль чётный. Единица нечётная. У любого числа N чётность такая же, как у
+// N-2.Напишите рекурсивную функцию isEven согласно этим правилам. Она
+// должна принимать число и возвращать булевское значение. Потестируйте её на
+// 50 и 75. Попробуйте задать ей -1. Почему она ведёт себя таким образом?
+// Можно ли её как-то исправить?
+function isEven(n){
+	if(n==0){
+		return true;
+	}
+	if(n==1){
+		return false;
+	}
+	if(n<0){
+		return isEven(-n);
+	}
+	return isEven(n - 2);
+}
+console.log(isEven(50));
+console.log(isEven(75));
+console.log(isEven(-15));
