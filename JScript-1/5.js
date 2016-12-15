@@ -49,13 +49,13 @@ console.log(numToObj(num));
 
 function objectToQueryString(obj){
 	var string = '';
-	for(var key in obj){
-		string += key + " = " + obj[key] + " " ;
+	for(var key in obj){ // в "map" не разобрался пока, реализовал через "in"
+		string += key + " = " + obj[key] + "; " ;
 	}
 	return string;
 }	
 
 console.log(objectToQueryString({user: 'Dmitry'})); // user=Dmitry
 console.log(objectToQueryString({user: 'Dmitry', password: 'pass'})); //user=Dmitry&password=pass 
-//console.log(objectToQueryString({user: 'Dmitry', password:'pass', id=1})); 
+console.log(objectToQueryString({user: 'Dmitry', password:'pass', id: 1})); 
 // user=Dmitry&password=pass&id=1
