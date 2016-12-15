@@ -47,8 +47,15 @@ console.log(numToObj(num));
 // Задание со звездочкой
 // * Реализовать функцию objectToQueryString(object), которая принимает аргументом объект, возвращает строку
 
-
+function objectToQueryString(obj){
+	var string = '';
+	for(var key in obj){
+		string += key + " = " ;
+	}
+	return string;
+}	
 
 console.log(objectToQueryString({user: 'Dmitry'})); // user=Dmitry
 console.log(objectToQueryString({user: 'Dmitry', password: 'pass'})); //user=Dmitry&password=pass 
-//console.log(objectToQueryString({user: 'Dmitry', password:'pass', id=1})); // user=Dmitry&password=pass&id=1
+//console.log(objectToQueryString({user: 'Dmitry', password:'pass', id=1})); 
+// user=Dmitry&password=pass&id=1
