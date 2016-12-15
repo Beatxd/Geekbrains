@@ -50,7 +50,7 @@ console.log(numToObj(num));
 function objectToQueryString(obj){
 	var string = '';
 	for(var key in obj){
-		string += key + " = " ;
+		string += key + " = " + obj[key] + " " ;
 	}
 	return string;
 }	
