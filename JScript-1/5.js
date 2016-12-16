@@ -20,26 +20,25 @@ console.log(color);
 // Вторая часть
 // Преобразовать число в объект. Вводить можно от 0 до 999, если больше то вернуть пустой объект. 
 function numToObj(num){		
+	while (num.replace (/\d/g, '').length || num == "") { 
+		num = prompt ('Вводить можно только числа');
+	}
 	if(num < 0 || num > 999){
-		console.log("Число не должно превышать 999");
+		console.log("Введите число от 0 до 999");
 		return {}
 	}
-	// var obj = {}
-	// if(num.length == 2){
-	// 	num = "0" + num;
-	// }
-	// if(num.length == 1){
-	// 	num = "00" + num;
-	// }
-	// obj['Единицы'] = num[2];
-	// obj['Десятки'] = num[1];
-	// obj['Сотни'] = num[0];	
-	// return obj;
+	var obj = {}
+	if(num.length == 2){
+		num = "0" + num;
+	}
+	if(num.length == 1){
+		num = "00" + num;
+	}
+	obj['Единицы'] = num[2];
+	obj['Десятки'] = num[1];
+	obj['Сотни'] = num[0];	
+	return obj;
 }
-// var num = prompt("Введите число");
-// while (num.replace (/\d/g, '').length || num == "") { // Проверку на "не числа" нашел в интернете
-// 	num = prompt ('Вводить можно только числа');
-// }
 console.log(numToObj(prompt("Введите число")));
 
 // Задание со звездочкой
