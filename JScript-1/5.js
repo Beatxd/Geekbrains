@@ -3,34 +3,18 @@
 //Оптимизировать
 function colorChanger(r, g, b){
 	var color;
-	// r = r.toString(16);
-	// g = g.toString(16);
-	// b = b.toString(16);
-	function valid(){
+	function valid(clr){
 		if (clr < 0 || clr > 255){
-			return console.log("Некорректный ввод цвета. Вводить нужно от 0 до 255");
+			console.log("Некорректный ввод цвета. Вводить нужно от 0 до 255. Цвет сброшен на '00'");
+			clr = 0;
 		}
-
-		var clr = (clr.length<2) ? "0" + clr : clr;
-
+		clr = clr.toString(16);
+		clr = (clr.length<2) ? "0" + clr : clr;
 		return clr;
 	}
-	
-	// if (r == 0){
-	// 	r = "00";
-	// }
-	// if (g == 0){
-	// 	g = "00";
-	// }
-	// if (b == 0){
-	// 	b = "00";
-	// }
-	// r = (r.length < 2) ? "0"+r : r;
-	// g = (g.length < 2) ? "0"+g : g;
-	// b = (b.length < 2) ? "0"+b : b;
-	return color = "#" + r + g + b;
+	return color = "#" + valid(r) + valid(g) + valid(b);
 }
-color = colorChanger(117, 0, 5);
+color = colorChanger(250, 0, 5);
 console.log(color);
 
 // Вторая часть
