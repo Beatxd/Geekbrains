@@ -14,9 +14,12 @@ function colorChanger(r, g, b){
 	if (b == 0){
 		b = "00";
 	}
+	r = (r.length < 2) ? "0"+r : r;
+	g = (g.length < 2) ? "0"+g : g;
+	b = (b.length < 2) ? "0"+b : b;
 	return color = "#" + r + g + b;
 }
-color = colorChanger(117, 0, 254);
+color = colorChanger(117, 0, 5);
 console.log(color);
 
 // Вторая часть
@@ -50,7 +53,7 @@ console.log(numToObj(num));
 function objectToQueryString(obj){
 	var string = '';
 	for(var key in obj){ // в "map" не разобрался пока, реализовал через "in"
-		string += key + " = " + obj[key] + "; " ;
+		string += key + "=" + obj[key] + "&" ;
 	}
 	return string;
 }	
