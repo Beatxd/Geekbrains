@@ -16,16 +16,29 @@ var list = {
 	}
 }
 
-function listToArray(object){
+function listToArray(obj){
 	var arr = [];
-	var obj = object;
+	
 	function toArr(obj){
+		// for(var key in obj){
+		// while(obj[key] != null){
+		// 	if(typeof obj[key] == "object"){
+		// 		toArr(obj[key]);
+		// 	}
+		// 	arr.push(obj[key]);
+		// 	return arr;
+		// 	}
+		// }
 		for(var key in obj){
+			if(obj[key] == null){
+				return;
+			}
 			if(typeof obj[key] == "object"){
 				toArr(obj[key]);
 			}
-			arr.push(obj[key]);
+		arr.push(obj[key]);
 		}
+		
 	}
 	toArr(obj);
 	return arr;
