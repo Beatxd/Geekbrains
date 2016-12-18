@@ -79,3 +79,35 @@ function reverseArrayInPlace(arr){
 var array3 = [9,8,7,6,5];
 reverseArrayInPlace(array3);
 console.log(array3); // [5, 6, 7, 8, 9]
+
+// Задание со звездочкой
+// * Реализовать функцию pick(obj, keys), которая принимает аргументами объект и массив строк
+// (названия ключей). Возвращает новый объект, куда вошли все ключи, указанные в массиве keys,
+// и соответствующие значения из объекта obj. Если в объекте obj, нет ключа, указанного в
+// массиве keys, в результирующем объекте этот ключ не должен присутствовать.
+
+function pick(obj, keys){
+	var objNew = {};
+	for(var key in object1){
+		var i = 0;
+		while(typeof keys[i] != 'undefined'){
+			if(keys[i] == key) break;
+			i++;
+		}
+		if(typeof obj[keys[i]] != 'undefined'){
+		objNew[key] = obj[keys[i]];
+		}
+	}
+	return objNew;
+}
+var object1 = {
+	key1: 'val1',
+	key2: 'val2',
+	key3: 'val3',
+	key4: 'val4',
+}
+var keys = ['key2', 'key4', 'key1'];
+
+var object2 = pick(object1, keys);
+console.log(object2);
+// console.log(object1); // для сравнения
