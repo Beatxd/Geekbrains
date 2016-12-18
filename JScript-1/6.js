@@ -27,7 +27,7 @@ function arrayToList(arr){
 	return list;
 	}
 }
-// Из списка в массив 
+// Из списка в массив (работает)
 function listToArray(obj){
 	var arr = [];
 	function toArr(obj){
@@ -90,11 +90,11 @@ function pick(obj, keys){
 	var objNew = {};
 	for(var key in object1){
 		var i = 0;
-		while(typeof keys[i] != 'undefined'){
+		while(typeof keys[i] != 'undefined'){ 
 			if(keys[i] == key) break;
 			i++;
 		}
-		if(typeof obj[keys[i]] != 'undefined'){
+		if(typeof obj[keys[i]] != 'undefined'){ // чтобы не добавлялись пустые ключи
 		objNew[key] = obj[keys[i]];
 		}
 	}
@@ -105,8 +105,11 @@ var object1 = {
 	key2: 'val2',
 	key3: 'val3',
 	key4: 'val4',
+	key5: 'val5',
+	key6: 'val6',
+	key7: 'val7',
 }
-var keys = ['key2', 'key4', 'key1'];
+var keys = ['key2', 'key7', 'key5'];
 
 var object2 = pick(object1, keys);
 console.log(object2);
