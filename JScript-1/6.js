@@ -15,7 +15,7 @@ function arrayToList(arr){
 		var i = arr.pop();
 		arr.push(i);
 		(key == i) ? listTemp.rest = null :	listTemp.rest = {};
-		listTemp = listTemp.rest
+		listTemp = listTemp.rest;
 	});
 	return list;
 }
@@ -77,15 +77,6 @@ console.log(prepend(15,list));
 console.log(nth(list,5));
 console.log(nth(list,8));
 
-// list = listToArray(list);
-// console.log(arrayToList(list));
-
-
-
-
-
-
-
 // Вторая часть
 console.log('---------------Вторая часть---------------')
 // Напишите две функции, reverseArray и reverseArrayInPlace. Первая получает массив как
@@ -106,7 +97,7 @@ var newArray = reverseArray(array2);
 console.log(newArray); // [7, 4, 3, 2, 1]
 //console.log(array2); // проверка корректности первоначального массива [1, 2, 3, 4, 7]
 function reverseArrayInPlace(arr){
-	var temp = []
+	var temp = [];
 	for(i = 0; arr.length > i; i){
 		temp.push(arr.pop(i));
 	}
