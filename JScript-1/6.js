@@ -1,33 +1,26 @@
 // Первая часть
+console.log('---------------Первая часть---------------')
 // Напишите функцию arrayToList, которая строит такую структуру,
 // получая в качестве аргумента [1, 2, 3], а также функцию listToArray, которая создаёт массив из списка.
 // Также напишите вспомогательную функцию prepend, которая получает элемент и создаёт новый список,
 // где этот элемент добавлен спереди к первоначальному списку, и функцию nth, которая в качестве
 // аргументов принимает список и число, а возвращает элемент на заданной позиции в списке, или же
 // undefined в случае отсутствия такого элемента.
-var list = {
-	value: 1,
-	rest: {
-		value: 2,
-		rest: {
-			value: 3,
-			rest: null,
-		}
-	}
-}
-var array = [1,2,3,4,7,8];
-// Из массива в список (не работает)
+
+// Из массива в список
 function arrayToList(arr){
-	var list = {};
-	for(var i = 0; arr.length > i; i++){
-		function func(){
-			list.value = arr[i];
-			list.rest = func();
-		}
+	var listTemp = list = {};
+	arr.forEach(function(key){
+		listTemp.value = key;
+		var i = arr.pop();
+		arr.push(i);
+		(key == i) ? listTemp.rest = null :	listTemp.rest = {};
+		listTemp = listTemp.rest
+	});
 	return list;
-	}
 }
-// Из списка в массив (работает)
+
+// Из списка в массив
 function listToArray(obj){
 	var arr = [];
 	function toArr(obj){
@@ -45,11 +38,56 @@ function listToArray(obj){
 	arr.length = (arr.length + 1) / 2; // Костыль убирающий лишние элементы из массива.
 	return arr;
 }
-list = listToArray(list);
-console.log(list);
+
+// prepend, которая получает элемент и создаёт новый список, где этот элемент добавлен спереди к 
+// первоначальному списку,
+function prepend(elmnt,list) {
+  return {value: elmnt, rest: list};
+}
+
+// nth, которая в качестве
+// аргументов принимает список и число, а возвращает элемент на заданной позиции в списке, или же
+// undefined в случае отсутствия такого элемента.
+function nth(list,pos) {
+  if(list == null) {
+    return undefined;
+  } else { 
+      if (pos == 1) {
+      return list.value;
+      }
+      return nth(list.rest, --pos);
+  }
+}
+
+var list = {
+	value: 1,
+	rest: {
+		value: 2,
+		rest: {
+			value: 3,
+			rest: null,
+		}
+	}
+}
+var array = [1,2,5,6,7,8];
+
 console.log(arrayToList(array));
+console.log(listToArray(list));
+console.log(prepend(15,list));
+console.log(nth(list,5));
+console.log(nth(list,8));
+
+// list = listToArray(list);
+// console.log(arrayToList(list));
+
+
+
+
+
+
 
 // Вторая часть
+console.log('---------------Вторая часть---------------')
 // Напишите две функции, reverseArray и reverseArrayInPlace. Первая получает массив как
 // аргумент и выдаёт новый массив, с обратным порядком элементов. Вторая работает как
 // оригинальный метод reverse – она меняет порядок элементов на обратный в том массиве,
@@ -81,6 +119,7 @@ reverseArrayInPlace(array3);
 console.log(array3); // [5, 6, 7, 8, 9]
 
 // Задание со звездочкой
+console.log('---------------Задание со звездочкой---------------')
 // * Реализовать функцию pick(obj, keys), которая принимает аргументами объект и массив строк
 // (названия ключей). Возвращает новый объект, куда вошли все ключи, указанные в массиве keys,
 // и соответствующие значения из объекта obj. Если в объекте obj, нет ключа, указанного в
