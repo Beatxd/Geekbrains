@@ -12,9 +12,7 @@ function arrayToList(arr){
 	var listTemp = list = {};
 	arr.forEach(function(key){
 		listTemp.value = key;
-		var i = arr.pop();
-		arr.push(i);
-		(key == i) ? listTemp.rest = null :	listTemp.rest = {};
+		(key == arr[arr.length - 1]) ? listTemp.rest = null :	listTemp.rest = {};
 		listTemp = listTemp.rest;
 	});
 	return list;
