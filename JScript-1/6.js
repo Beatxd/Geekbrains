@@ -12,7 +12,7 @@ function arrayToList(arr){
 	var listTemp = list = {};
 	arr.forEach(function(key){
 		listTemp.value = key;
-		(key == arr[arr.length - 1]) ? listTemp.rest = null :	listTemp.rest = {};
+		(key == arr[arr.length - 1]) ? listTemp.rest = null : listTemp.rest = {};
 		listTemp = listTemp.rest;
 	});
 	return list;
@@ -47,15 +47,14 @@ function prepend(elmnt,list) {
 // аргументов принимает список и число, а возвращает элемент на заданной позиции в списке, или же
 // undefined в случае отсутствия такого элемента.
 function nth(list,pos) {
-  if(list == null) {
-    return undefined;
-  } else { 
-      if (pos == 1) {
-      return list.value;
-      }
-      return nth(list.rest, --pos);
+	if(list == null) {
+    	return undefined;
+	}
+	if (pos == 1) {
+    	return list.value;
+    }
+    return nth(list.rest, --pos);
   }
-}
 
 var list = {
 	value: 1,

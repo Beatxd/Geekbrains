@@ -19,35 +19,35 @@ var users = [
 	}	
 ]
 
-// Добавление пользователя вручную:
-// var user = {};
-// user.firstName = prompt("Введите имя");
-// user.lastName = prompt("Введите фамилию");
-// user.birthDay = prompt("Введите дату рождения");
-// user.phones = [];
-// user.phones[0] = prompt("Введите номер телефона");
-// users.push(user);
-
 for (var i = 0; i < users.length; i++) {
 	console.log("Имя: " + users[i].firstName + " Фамилия: " + users[i].lastName + " Дата рождения: " + users[i].birthDay + " Телефоны: " + users[i].phones);
 };
 
-// Продолжаем делать адресную книгу. Вынесем код по созданию пользователя в отдельную
-// функцию, чтобы добиться большей универсальности и в дальнейшем использовать эту функцию
-// повторно:
+// function​ addUser(users) {
+// 	var​ user = {};
+// 	user.firstName = prompt​('Введите имя:');
+// 	user.lastName = prompt​('Введите фамилию:');
+// 	user.birthDay = prompt​('Дату рождения:');
+// 	user.phones = [];
+// 	while​ (true​) {
+// 		var​ phone = prompt​('Номер телефона:(для выхода введите пустой номер)');
+// 		if​ (!phone) break​;
+// 		user.phones.push(phone);
+// 	}
+// 	users.push(user);
+// }
 function​ addUser(users) {
 	var​ user = {};
-	user.firstName = prompt​('Введите имя:');
-	user.lastName = prompt​('Введите фамилию:');
-	user.birthDay = prompt​('Дату рождения:');
-	user.phones = [];
-	while​ (true​) {
-		var​ phone = prompt​('Номер телефона:(для выхода введите пустой номер)');
-		if​ (!phone) break​;
-		user.phones.push(phone);
-	}
+	user.firstName = document.getElementById(firstName);
+	user.lastName = document.getElementById(lastName);
+	user.birthDay = document.getElementById(birthDay);
+	// user.phones = [];
+	// user.phones.push(document.getElementById(phone1));
+	// if(typeof document.getElementById(phone2) != 'undefined') {user.phones.push(document.getElementById(phone2))}
 	users.push(user);
+	console.log(users);
 }
+
 // Кроме того, часто в адресных книгах существует функция выгрузки все контактов в файл. Очень
 // часто в качестве формата такой выгрузки используется формат csv. Попробуем реализовать
 // функцию выгрузки адресной книги в формате csv:

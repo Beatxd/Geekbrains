@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="adressbook.js"></script>
+	<link rel="stylesheet" href="adressbook.css">
+	<title></title>
+</head>
+<body>
+<form class="form">
+	<fieldset>
+		<legend>Добавить новго пользователя</legend>
+		<p><input type="text" placeholder="Иван" id="firstName" required>* Имя </p>
+		<p><input type="text" placeholder="Иванов" id="lastName" required>* Фамилия </p>
+		<p><input type="text" placeholder="Иванович" id="birthDay"> Дата рождения </p>
+		<p><input type="text" placeholder="example@mail.ru" required id="phone1">* Телефон 1</p>
+		<p><input type="text" placeholder="example@mail.ru" id="phone2"> Телефон 2</p>
+		<p class="notation">Обязательные поля отмечены звездочками</p>
+		<p><input type="reset" value="Сбросить">
+		<input type="submit" value="Отправить" id="but"></p>
+	</fieldset>
+</form>
+</body>
+</html>
