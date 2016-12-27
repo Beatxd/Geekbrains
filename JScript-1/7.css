@@ -39,3 +39,10 @@ span{
 .black{
 	color: #000;
 }
+#kletka{
+	position: absolute;
+	left: 650px;
+	bottom: 700px;
+	margin: 50px;
+	font-size: 90px;
+}
