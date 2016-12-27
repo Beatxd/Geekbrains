@@ -9,12 +9,12 @@ function board() {
 	chess.appendChild(document.createElement('table'));
 	for (var i = 8; i >= 1; i--) {
 		var newTr = chess.lastChild.appendChild(document.createElement('tr'));
-		if (i == 1 || i == 2){
-			newTr.className = 'white' // задаем цвета фигурам
-		}
-		if (i == 7 || i == 8){
-			newTr.className = 'black';
-		}
+		// if (i == 1 || i == 2){
+		// 	newTr.className = 'white' // задаем цвета фигурам
+		// }
+		// if (i == 7 || i == 8){
+		// 	newTr.className = 'black';
+		// }
 		
 		for (var i2 = 1; i2 <= 8; i2++) {
 			var newTd = chess.lastChild.lastChild.appendChild(document.createElement('td'));
@@ -52,11 +52,8 @@ function board() {
 		count = count.nextElementSibling;
 	}
 }
+function playChess() {
+	
+}
 
 board();
-
-
-// var newLi = document.createElement('p');
-//   newLi.innerHTML = 'Привет, мир!';
-
-//   chess.appendChild(newLi);
