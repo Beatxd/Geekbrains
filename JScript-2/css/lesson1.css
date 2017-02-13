@@ -1,0 +1,13 @@
+.chessCreate {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #111;
+}
+.cell {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+.blackCell {
+  background: #803B12;
+}
