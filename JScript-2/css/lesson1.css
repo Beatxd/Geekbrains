@@ -1,13 +1,21 @@
 .chessCreate {
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   border: 1px solid #111;
 }
-.cell {
+.cell{
   width: 50px;
   height: 50px;
   float: left;
+  background: #F0DAB5;
 }
 .blackCell {
-  background: #803B12;
+  background: #B58763;
+}
+.chessLetter {
+  background: #fff;
+  float: left;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 26px;
 }
