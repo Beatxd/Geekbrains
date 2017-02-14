@@ -38,10 +38,11 @@ function ChessBoard(elmntSelector) {
     }
     // Доступ к выбранной по коду ячейке. Можем работать с объектом выбирая нужные ячейки.
     this.setActive = function setActive(id) {
-        // id = id.toUpperCase(); // С текстом не получается, ругается на classList.add
+        id = document.getElementById(id.toUpperCase());
         id.classList.add('active');
     };
     this.setInactive = function setInactive(id) {
+        id = document.getElementById(id.toUpperCase());
         id.classList.remove('active');
     };
     // this.setActive = setActive(id);
@@ -91,9 +92,9 @@ function ChessBoard(elmntSelector) {
 }
 
 var newBoard = new ChessBoard('div');
-newBoard.setActive(A3); // Установить активную ячейку, Текстом не указать. Ругается. Почему?
-newBoard.setInactive(A3); // Убрать активность ячейки
-newBoard.setActive(E5);
+newBoard.setActive('A5'); // Установить активную ячейку, Текстом не указать. Ругается. Почему?
+newBoard.setInactive('A5'); // Убрать активность ячейки
+newBoard.setActive('e5');
 
 
 // newBoard.setActive('a3'); // Через текст не получается. Почему?
