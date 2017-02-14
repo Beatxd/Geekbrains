@@ -18,24 +18,24 @@ function ChessBoard(elmntSelector) {
 
     chessBoard.className='chessCreate';
 
-    var i = 0, count = 0;
+    var i = 0;
     var numberCount = 8;
     var adressCount = 0;
     var letters = 'ABCDEFGH';
     // Процесс создания доски приватный, т.к. он не должен меняться.
-    while (count < 64 + 17) { // 64 клетки + разметка
+    while (i < 64 + 17) { // 64 клетки + разметка
         var cell = document.createElement('div');
         chessBoard.appendChild(cell);
         cell.classList.add('cell');
-        // Выделение по клику не срабатывает
-        cell.addEventListener('click', this.setActive); // добавить функционал активации по клику
+
         addMarking();
         addBlackCell();
         addAdress();
-        // cell.addEventListener("click", setActive(cell.id)); // не работает
+        // Выделение по клику не срабатывает
+        // cell.addEventListener("click", clickToActive(cell.id)); // не работает
         i++;
-        count++;
     }
+
     // Доступ к выбранной по коду ячейке. Можем работать с объектом выбирая нужные ячейки.
     this.setActive = function setActive(id) {
         id = document.getElementById(id.toUpperCase());
@@ -45,7 +45,6 @@ function ChessBoard(elmntSelector) {
         id = document.getElementById(id.toUpperCase());
         id.classList.remove('active');
     };
-    // this.setActive = setActive(id);
     function addMarking(){
         if (!((i + 9) % 9)) {
             cell.classList.add('chessLetter');
@@ -88,11 +87,14 @@ function ChessBoard(elmntSelector) {
         if (adressCount > 8) adressCount = 0;
 
     }
-
+    // function clickToActive(id){
+    //     id = document.getElementById(id.toUpperCase());
+    //     id.classList.add('active');
+    // }
 }
 
 var newBoard = new ChessBoard('div');
-newBoard.setActive('A5'); // Установить активную ячейку, Текстом не указать. Ругается. Почему?
+newBoard.setActive('A5'); // Установить активную ячейку
 newBoard.setInactive('A5'); // Убрать активность ячейки
 newBoard.setActive('e5');
 
