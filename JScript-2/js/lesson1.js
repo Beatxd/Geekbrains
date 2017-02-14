@@ -1,3 +1,4 @@
+"use strict";
 /*
  ●	Разработать класс, генерирующий шахматную доску на странице.
  Конструктор в качестве параметра должен принимать селектор элемента
@@ -8,10 +9,11 @@
  Для генерации доски можно использовать произвольные html-тэги.
  Подумать какие свойства должны быть скрыты, а какие нет решение аргументировать
  в комментариях к коду.
- ●	Добавить базовый класс, который мог бы генерировать таблицы (доски) любого размера и унаследовать от него разработанный класс шахматной доски.
+ ●	Добавить базовый класс, который мог бы генерировать таблицы (доски) любого размера
+ и унаследовать от него разработанный класс шахматной доски.
  ●	* Все то же самое с помощью ООП в прототипном стиле (разобраться самостоятельно).
  */
-function CreateBoard(elmntSelector) {
+function ChessBoard(elmntSelector) {
     var chessBoard = document.body.appendChild(document.createElement(elmntSelector));
 
     chessBoard.className='chessCreate';
@@ -20,20 +22,30 @@ function CreateBoard(elmntSelector) {
     var numberCount = 8;
     var adressCount = 0;
     var letters = 'ABCDEFGH';
-
+    // Процесс создания доски приватный, т.к. он не должен меняться.
     while (count < 64 + 17) { // 64 клетки + разметка
         var cell = document.createElement('div');
         chessBoard.appendChild(cell);
-        cell.className = 'cell';
-        getMarking();
+        cell.classList.add('cell');
+        // Выделение по клику не срабатывает
+        cell.addEventListener('click', this.setActive); // добавить функционал активации по клику
+        addMarking();
         addBlackCell();
-        getAdress();
-        // i += ((i + 2) % 70) ? 1 : 2;
+        addAdress();
+        // cell.addEventListener("click", setActive(cell.id)); // не работает
         i++;
         count++;
     }
-
-    function getMarking(){
+    // Доступ к выбранной по коду ячейке. Можем работать с объектом выбирая нужные ячейки.
+    this.setActive = function setActive(id) {
+        // id = id.toUpperCase(); // С текстом не получается, ругается на classList.add
+        id.classList.add('active');
+    };
+    this.setInactive = function setInactive(id) {
+        id.classList.remove('active');
+    };
+    // this.setActive = setActive(id);
+    function addMarking(){
         if (!((i + 9) % 9)) {
             cell.classList.add('chessLetter');
             if (numberCount > 0) cell.innerText = numberCount--;
@@ -46,7 +58,7 @@ function CreateBoard(elmntSelector) {
     function addBlackCell(){
         if (!(i && i % 2)) cell.classList.add('blackCell');
     }
-    function getAdress(){
+    function addAdress(){
         if (i > 0 && i <= 8) {
             cell.id = letters[adressCount - 1] + 8;
         }
@@ -75,9 +87,16 @@ function CreateBoard(elmntSelector) {
         if (adressCount > 8) adressCount = 0;
 
     }
+
 }
 
-newBoard = new CreateBoard('div');
+var newBoard = new ChessBoard('div');
+newBoard.setActive(A3); // Установить активную ячейку
+newBoard.setInactive(A3); // Убрать активность ячейки
+newBoard.setActive(E5);
+
+
+// newBoard.setActive('a3'); // Через текст не получается. Почему?
 // chessBoard2 = new CreateBoard('p');
 
 
