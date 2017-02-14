@@ -91,7 +91,7 @@ function ChessBoard(elmntSelector) {
 }
 
 var newBoard = new ChessBoard('div');
-newBoard.setActive(A3); // Установить активную ячейку
+newBoard.setActive(A3); // Установить активную ячейку, Текстом не указать. Ругается. Почему?
 newBoard.setInactive(A3); // Убрать активность ячейки
 newBoard.setActive(E5);
 
