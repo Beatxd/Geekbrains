@@ -25,22 +25,22 @@ function board() {
 	
 	//Заполнение фигрурами
 	a2.innerHTML = '&#9817;';
-	var count = a2.nextElementSibling
+	var count = a2.nextElementSibling;
 	for(var i = 0; i < 7; i++){
 		count.innerHTML = '&#9817;';
 		count = count.nextElementSibling;
 	}
 	a7.innerHTML = '&#9823;';
-	count = a7.nextElementSibling
+	count = a7.nextElementSibling;
 	for(var i = 0; i < 7; i++){
 		count.innerHTML = '&#9823;';
 		count = count.nextElementSibling;
 	}
 	var figuresW = ['&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9815;','&#9816;','&#9814;'];
 	a1.innerHTML = figuresW[0];
-	count = a1.nextElementSibling
+	count = a1.nextElementSibling;
 	for(var i = 1; i < 8; i++){
-		count.innerHTML = figuresW[i];;
+		count.innerHTML = figuresW[i];
 		count = count.nextElementSibling;
 	}
 	figuresB = ['&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;'];
@@ -55,7 +55,7 @@ function board() {
 }
 //Выделение клеток и вывод айди выделенной ячейки
 function arrowButtons(event){
-	this.innerHTML = event.keyCode
+	this.innerHTML = event.keyCode;
 		if(event.keyCode == "37"){
 			alert('left');
 		}

@@ -8,6 +8,9 @@
   height: 50px;
   float: left;
   background: #F0DAB5;
+  font-weight: bold;
+  text-align: center;
+  font-size: 35px;
 }
 .blackCell {
   background: #B58763;
