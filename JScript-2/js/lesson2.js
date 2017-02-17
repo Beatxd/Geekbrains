@@ -1,7 +1,8 @@
-// ;(function () { // убрано чтобы работала кнопка "Расставить фигуры"
+;(function () {
     'use strict';
     createListOfPhones();
-    // fillFigures();
+
+    window.fillFigures = fillFigures; // Доступ из index.html через модуль
     function createListOfPhones() {
         var phones;
         var ul = document.body.appendChild(document.createElement('ul'));
@@ -72,4 +73,4 @@
         }
     }
 
-// })();
+})();
