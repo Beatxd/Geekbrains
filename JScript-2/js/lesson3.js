@@ -40,9 +40,9 @@ function validationNumber() {
     var str = phone.value;
 
     if (str.search(/^\+\d\(\d{3}\)-\d{3}-\d{2}-\d{2}$/) != -1) { // Жесткая проверка
-        phone.className = 'green'
+        phone.className = 'green';
     } else {
-        phone.className = 'red'
+        phone.className = 'red';
     }
 }
 function validationEmail() {
@@ -50,9 +50,9 @@ function validationEmail() {
     var str = email.value;
 
     if (str.search(/^[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/) != -1) { // 2-4: ru, com, list.
-        email.className = 'green'
+        email.className = 'green';
     } else {
-        email.className = 'red'
+        email.className = 'red';
     }
 }
 function validationPasport() {
@@ -60,8 +60,13 @@ function validationPasport() {
     var str = pasport.value;
 
     if (str.search(/^\d{4} \d{6}$/) != -1) { // 2-4: ru, com, list.
-        pasport.className = 'green'
+        pasport.className = 'green';
     } else {
-        pasport.className = 'red'
+        pasport.className = 'red';
     }
+}
+function validationAll(){
+    validationNumber();
+    validationEmail();
+    validationPasport();
 }
