@@ -1,0 +1,23 @@
+ul.hr-menu {
+    margin: 0;
+    background-color: #336633;
+    border: 1px solid #363;
+    color: #fff;
+    width: 430px;
+}
+
+ul.hr-menu li {
+    display: inline;
+    margin-right: 5px;
+    padding: 4px;
+}
+.tabContent{
+    border: 1px solid #363;
+    width: 450px;
+    padding: 10px;
+}
+.active-tab{
+    font-weight: bold;
+    background-color: #fff;
+    color: #000;
+}
