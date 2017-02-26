@@ -86,7 +86,7 @@ function Voter(options) {
     });
 
     this.setVote = function (num) {
-        if (num >= 0 || num < 0 ) {
+        if (num >= 0 || num < 0) {
             voteCount = num;
             return vote.innerText = num;
         }
