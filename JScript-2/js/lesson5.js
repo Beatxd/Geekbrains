@@ -2,11 +2,17 @@
 var clock = new Clock({
     elem: 'div'
 });
+var voter1 = new Voter({elem: 'div', name: 'Голосование №1:'});
+
 // clock.stop(); // стоп
 // clock.start(); // старт
+voter1.setVote(15);
+voter1.setVote('asd');
+
 function Clock(options) {
     var elem = document.body.appendChild(document.createElement(options.elem));
     elem.id = 'widgetClock';
+    elem.className = 'widget';
     var title = elem.appendChild(document.createElement('span'));
     title.className = 'widgetTitle';
     title.innerText = options.name || 'Точное время:';
@@ -46,14 +52,10 @@ function Clock(options) {
         clearInterval(intervalID);
     };
 }
-
-var voter1 = new Voter({elem: 'div', name: 'Голосование №1:'});
-voter1.setVote(15);
-voter1.setVote('asd');
-
 function Voter(options) {
     var elem = document.body.appendChild(document.createElement(options.elem));
     elem.id = 'widgetVoter';
+    elem.className = 'widget';
     var title = elem.appendChild(document.createElement('span'));
     title.className = 'widgetTitle';
     title.innerText = options.name || 'Голосование:';
@@ -91,9 +93,3 @@ function Voter(options) {
         console.log('setVote(Ввели не число)');
     }
 }
-// <div id="voter" class="voter">
-//     <span class="down">—</span>
-//     <span class="vote">0</span>
-//     <span class="up">+</span>
-// </div>
-// voter.setVote(vote)
