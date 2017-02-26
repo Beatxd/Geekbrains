@@ -1,8 +1,10 @@
 .widgetTitle{
-    font-family: Calibri;
     font-size: 20px;
 }
 .widgetBody{
-    font-family: Calibri;
     font-size: 40px;
+}
+.down, .vote, .up{
+    font-size: 40px;
+    margin: 10px;
 }

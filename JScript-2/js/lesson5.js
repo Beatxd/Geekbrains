@@ -9,7 +9,7 @@ function Clock(options) {
     elem.id = 'widgetClock';
     var title = elem.appendChild(document.createElement('span'));
     title.className = 'widgetTitle';
-    title.innerText = 'Точное время:';
+    title.innerText = options.name || 'Точное время:';
     var clock = elem.appendChild(document.createElement('div'));
     clock.className = 'widgetBody';
     var button = elem.appendChild(document.createElement('input'));
@@ -17,6 +17,7 @@ function Clock(options) {
     button.value = 'Стоп/Старт';
     button.addEventListener('click', stopStart);
     var i = 1;
+
     function stopStart() {
         if (i % 2) {
             clearInterval(intervalID);
@@ -35,12 +36,64 @@ function Clock(options) {
             return i;
         }
     }
+
     getTime();
     var intervalID = setInterval(getTime, 1000);
     this.start = function () {
-        intervalID = setInterval(getTime, 1000)
+        intervalID = setInterval(getTime, 1000);
     };
     this.stop = function () {
-        clearInterval(intervalID)
+        clearInterval(intervalID);
     };
 }
+
+var voter1 = new Voter({elem: 'div', name: 'Голосование №1:'});
+voter1.setVote(15);
+voter1.setVote('asd');
+
+function Voter(options) {
+    var elem = document.body.appendChild(document.createElement(options.elem));
+    elem.id = 'widgetVoter';
+    var title = elem.appendChild(document.createElement('span'));
+    title.className = 'widgetTitle';
+    title.innerText = options.name || 'Голосование:';
+
+    // widget body
+    var voter = elem.appendChild(document.createElement('div'));
+    voter.className = 'voter';
+    voter.id = 'voter';
+    var down = voter.appendChild(document.createElement('span'));
+    down.className = 'down';
+    down.innerText = '—';
+    var vote = voter.appendChild(document.createElement('span'));
+    vote.className = 'vote';
+    var voteCount = 0;
+    vote.innerText = voteCount;
+    var up = voter.appendChild(document.createElement('span'));
+    up.className = 'up';
+    up.innerText = '+';
+    // end widget body
+
+    up.addEventListener('click', function () {
+        voteCount++;
+        vote.innerText = voteCount;
+    });
+    down.addEventListener('click', function () {
+        voteCount--;
+        vote.innerText = voteCount;
+    });
+
+    this.setVote = function (num) {
+        if (num >= 0 || num < 0 ) {
+            voteCount = num;
+            return vote.innerText = num;
+        }
+        console.log('setVote(Ввели не число)');
+    }
+}
+// <div id="voter" class="voter">
+//     <span class="down">—</span>
+//     <span class="vote">0</span>
+//     <span class="up">+</span>
+// </div>
+// voter.setVote(vote)
