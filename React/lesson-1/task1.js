@@ -14,4 +14,3 @@ const loop = (times = 0, callback) => {
 loop (0, () => console.log('test'));
 loop (2, () => console.log('test2'));
 loop (2);
-
