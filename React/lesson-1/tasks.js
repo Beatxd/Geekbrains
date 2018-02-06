@@ -9,16 +9,21 @@
   const loop = (times, callback = null) => {
     if (!callback) return console.log('break loop');
     if (!isNum(times)) times = 0;
-    for (let i = 0; i < times; i++) {
-      callback();
+    try {
+      for (let i = 0; i < times; i++) {
+        callback();
+      }
+    } catch (e) {
+      console.log('callback Error! \n' + e.message);
     }
   };
 
   loop(0, () => console.log('test'));
   loop(2, () => console.log('test2'));
   loop(2);
+  loop(2, () => ERROR());
 
-  function isNum(num){
+  function isNum(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
   }
 })();
@@ -38,14 +43,14 @@
     let area;
     let input;
 
-    if (params.length < 1){
+    if (params.length < 1) {
       console.log('Wrong params!');
       return {};
     }
 
-    switch(figure.toLowerCase()){
+    switch (figure.toLowerCase()) {
       case 'circle': {
-        area = Math.pow(params[0], 2) * 3.14 ;
+        area = Math.pow(params[0], 2) * 3.14;
         input = 'Радиус: ' + params[0];
         break;
       }
@@ -71,5 +76,26 @@
   console.log(calculateArea('circle', 3));
   console.log(calculateArea('circle'));
   console.log(calculateArea('unknown', 2));
-
 })();
+
+/* Необходимо написать иерархию классов вида:
+ Human -> Employee -> Developer
+ Human -> Employee -> Manager
+ Каждый Менеджер (Manager) должен иметь внутренний массив своих сотрудников
+ (разработчиков), а также методы по удалению/добавлению разработчиков.
+ Каждый Разработчик (Developer) должны иметь ссылку на Менеджера и методы для
+ изменения менеджера (имеется ввиду возможность назначить другого менеджера).
+ У класса Human должны быть следующие параметры: name (строка), age (число),
+ dateOfBirth (строка или дата)
+ У класса Employee должны присутствовать параметры: salary (число), department
+ (строка)
+ В классе Human должен присутствовать метод displayInfo, который возвращает строку
+ со всеми параметрами экземпляра Human.
+ © geekbrains.ru 22
+ В классе Employee должен быть реализовать такой же метод (displayInfo), который
+ вызывает базовый метод и дополняет его параметрами из экземпляра Employee
+ Чтобы вызвать метод базового класса, необходимо внутри вызова метода displayInfo
+ класса Employee написать: super.displayInfo(), это вызовет метод disaplyInfo класс
+ Human и вернет строку с параметрами Human'a.
+ */
+
