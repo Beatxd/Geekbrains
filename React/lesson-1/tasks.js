@@ -110,7 +110,7 @@ function isNum(num) {
     }
   }
 
-  class Emploee extends Human{
+  class Employee extends Human{
     constructor(name, age, dateOfBirth, salary, department){
       super(name, age, dateOfBirth);
       this.salary = salary;
@@ -121,6 +121,29 @@ function isNum(num) {
     }
   }
 
-  const OneMan = new Emploee('Alexandr Sergeevich', 218, '06.06.1799', 10000, 'IT');
+  class Developer extends Employee{
+    constructor(manager, name, age, dateOfBirthday, salary = 10000, department = 'IT'){
+      super(name, age, dateOfBirthday, salary, department);
+      this.myManager = manager;
+    }
+  }
+
+  class Manager extends Employee{
+    constructor(name, age, dateOfBirthday, salary = 15000, department = 'Boss'){
+      super(name, age, dateOfBirthday, salary, department);
+      this.developers = [];
+    }
+
+    addDev(name, age, dateOfBirthday, salary = 10000){
+      const newDev = new Developer(this, name, age, dateOfBirthday, salary);
+      this.developers.push(newDev);
+    }
+
+    removeDev(i){
+      this.developers.splice(i, 1);
+    }
+  }
+
+  const OneMan = new Employee('Alexandr Sergeevich', 218, '06.06.1799', 10000, 'IT');
   console.log(OneMan.displayInfo());
 })();
