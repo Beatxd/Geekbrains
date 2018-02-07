@@ -99,51 +99,78 @@ function isNum(num) {
 
 (function () {
   console.log('\n---task3---');
-  class Human{
-    constructor(name, age, dateOfBirth){
+  class List {
+    constructor() {
+      this.list = [];
+    }
+    getList() {
+      return this.list;
+    }
+    addItem(item){
+      this.list.push(item);
+    }
+    removeItem(i){
+      this.list.splice(i, 1);
+    }
+  }
+
+  const managersList = new List();
+
+  class Human {
+    constructor(name, age, dateOfBirth) {
       this.name = name;
       this.age = age;
       this.dateOfBirth = dateOfBirth;
     }
+
     displayInfo() {
       return `Имя: ${this.name}; Возраст: ${this.age}; Дата рождения: ${this.dateOfBirth}`
     }
   }
 
-  class Employee extends Human{
-    constructor(name, age, dateOfBirth, salary, department){
+  class Employee extends Human {
+    constructor(name, age, dateOfBirth, salary, department) {
       super(name, age, dateOfBirth);
       this.salary = salary;
       this.department = department;
     }
-    displayInfo(){
+
+    displayInfo() {
       return super.displayInfo() + `; Зарплата: ${this.salary}; Отдел: ${this.department}`
     }
   }
 
-  class Developer extends Employee{
-    constructor(manager, name, age, dateOfBirthday, salary = 10000, department = 'IT'){
+  class Developer extends Employee {
+    constructor(manager, name, age, dateOfBirthday, salary = 10000, department = 'IT') {
       super(name, age, dateOfBirthday, salary, department);
       this.myManager = manager;
     }
+
+    changeManager(i) {
+      this.myManager = managersList.getList()[i];
+    }
   }
 
-  class Manager extends Employee{
-    constructor(name, age, dateOfBirthday, salary = 15000, department = 'Boss'){
+  class Manager extends Employee {
+    constructor(name, age, dateOfBirthday, salary = 15000, department = 'Boss') {
       super(name, age, dateOfBirthday, salary, department);
-      this.developers = [];
+      this.developers = new List();
+      managersList.addItem(this);
     }
 
-    addDev(name, age, dateOfBirthday, salary = 10000){
+    addDev(name, age, dateOfBirthday, salary = 10000) {
       const newDev = new Developer(this, name, age, dateOfBirthday, salary);
-      this.developers.push(newDev);
+      this.developers.addItem(newDev);
+      return newDev;
     }
 
-    removeDev(i){
-      this.developers.splice(i, 1);
+    removeDev(i) {
+      this.developers.removeItem(i);
     }
   }
 
-  const OneMan = new Employee('Alexandr Sergeevich', 218, '06.06.1799', 10000, 'IT');
-  console.log(OneMan.displayInfo());
+  const mrPoet = new Manager('Alexandr Sergeevich', 218, '06.06.1799', 30000);
+  const manager2 = new Manager('Manager2', 48, '01.01.1970');
+  const dev1 = mrPoet.addDev()
+
 })();
