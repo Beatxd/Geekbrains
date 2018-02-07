@@ -37,8 +37,8 @@ function isNum(num) {
  */
 (function () {
   console.log('\n---task2---');
-  function calculateArea(figure) {
-    const params = [].slice.call(arguments, 1);
+  function calculateArea(figure, ...params) {
+    // const params = [].slice.call(arguments, 1);
     let area;
     let input;
 
@@ -184,6 +184,5 @@ function isNum(num) {
   dev3.changeManager(1);
   console.log('manager of dev3 after change: ',dev3.myManager);
   console.log('devList of mrPoet after all changes:', mrPoet.developers.getList());
-
 
 })();
