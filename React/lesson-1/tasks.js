@@ -150,6 +150,7 @@ function isNum(num) {
       const myIndex = this.myManager.developers.list.indexOf(this);
       this.myManager.developers.removeItem(myIndex);
       this.myManager = managersList.getList()[i];
+      this.myManager.developers.addItem(this);
     }
   }
 
@@ -182,7 +183,7 @@ function isNum(num) {
   mrPoet.removeDev(1);
   console.log('manager of dev3 before change: ',dev3.myManager);
   dev3.changeManager(1);
+  console.log('manager2 developers', manager2.developers.getList());
   console.log('manager of dev3 after change: ',dev3.myManager);
   console.log('devList of mrPoet after all changes:', mrPoet.developers.getList());
-
 })();
