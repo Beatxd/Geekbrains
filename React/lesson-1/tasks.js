@@ -1,4 +1,7 @@
 'use strict';
+function isNum(num) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
+}
 /* Написать функцию loop, которая будет принимать параметры: times (значение по
  умолчанию = 0), callback (значение по умолчанию = null) и будет в цикле (times раз),
  вызывать функцию callback. Если функцию не передана, то цикл не должен
@@ -22,10 +25,6 @@
   loop(2, () => console.log('test2'));
   loop(2);
   loop(2, () => ERROR());
-
-  function isNum(num) {
-    return !isNaN(parseFloat(num)) && isFinite(num);
-  }
 })();
 
 /* Написать функцию calculateArea, которая будет принимать параметры, для
@@ -37,7 +36,7 @@
  произведено вычисление.
  */
 (function () {
-  console.log('---task2---');
+  console.log('\n---task2---');
   function calculateArea(figure) {
     const params = [].slice.call(arguments, 1);
     let area;
@@ -50,7 +49,7 @@
 
     switch (figure.toLowerCase()) {
       case 'circle': {
-        area = Math.pow(params[0], 2) * 3.14;
+        area = Math.pow(params[0], 2) * Math.PI;
         input = 'Радиус: ' + params[0];
         break;
       }
@@ -75,7 +74,7 @@
   console.log(calculateArea('rectangle', 2, 4));
   console.log(calculateArea('circle', 3));
   console.log(calculateArea('circle'));
-  console.log(calculateArea('unknown', 2));
+  console.log(calculateArea('unknown', null));
 })();
 
 /* Необходимо написать иерархию классов вида:
@@ -91,7 +90,6 @@
  (строка)
  В классе Human должен присутствовать метод displayInfo, который возвращает строку
  со всеми параметрами экземпляра Human.
- © geekbrains.ru 22
  В классе Employee должен быть реализовать такой же метод (displayInfo), который
  вызывает базовый метод и дополняет его параметрами из экземпляра Employee
  Чтобы вызвать метод базового класса, необходимо внутри вызова метода displayInfo
@@ -99,3 +97,30 @@
  Human и вернет строку с параметрами Human'a.
  */
 
+(function () {
+  console.log('\n---task3---');
+  class Human{
+    constructor(name, age, dateOfBirth){
+      this.name = name;
+      this.age = age;
+      this.dateOfBirth = dateOfBirth;
+    }
+    displayInfo() {
+      return `Имя: ${this.name}; Возраст: ${this.age}; Дата рождения: ${this.dateOfBirth}`
+    }
+  }
+
+  class Emploee extends Human{
+    constructor(name, age, dateOfBirth, salary, department){
+      super(name, age, dateOfBirth);
+      this.salary = salary;
+      this.department = department;
+    }
+    displayInfo(){
+      return super.displayInfo() + `; Зарплата: ${this.salary}; Отдел: ${this.department}`
+    }
+  }
+
+  const OneMan = new Emploee('Alexandr Sergeevich', 218, '06.06.1799', 10000, 'IT');
+  console.log(OneMan.displayInfo());
+})();
