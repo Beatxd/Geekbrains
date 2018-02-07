@@ -1,6 +1,11 @@
 'use strict';
-(function (container, question, answer, btn) {
-  function getUserData(container, question, answer, btn) {
+/*При помощи генератора написать функцию - анкету, которая запрашивает у
+ пользователя на ввод параметры и передаёт их в генератор. В конце, когда генератор
+ завершается, он должен вернуть все введённые входные параметры в виде объекта.
+ Этот объект нужно вывести в консоли.
+ */
+(function (question, answer, btn) {
+  function getUserData(question, answer, btn) {
     function* gen(question, answer) {
       question.innerText = 'Укажите свой возраст';
       answer.placeholder = '18';
@@ -32,7 +37,7 @@
 
   }
 
-  getUserData(container, question, answer, btn);
+  getUserData(question, answer, btn);
 
-})(document.getElementById('container'), document.getElementById('question'),
+})(document.getElementById('question'),
   document.getElementById('answer'), document.getElementById('sendBtn'));
