@@ -10,7 +10,7 @@ function isNum(num) {
 (function () {
   console.log('---task1---');
   const loop = (times, callback = null) => {
-    if (!callback) return console.log('break loop');
+    if (!callback || typeof callback !== 'function') return console.log('break loop');
     if (!isNum(times)) times = 0;
     try {
       for (let i = 0; i < times; i++) {
