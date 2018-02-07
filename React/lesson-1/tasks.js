@@ -147,6 +147,8 @@ function isNum(num) {
     }
 
     changeManager(i) {
+      const myIndex = this.myManager.developers.list.indexOf(this);
+      this.myManager.developers.removeItem(myIndex);
       this.myManager = managersList.getList()[i];
     }
   }
@@ -171,6 +173,17 @@ function isNum(num) {
 
   const mrPoet = new Manager('Alexandr Sergeevich', 218, '06.06.1799', 30000);
   const manager2 = new Manager('Manager2', 48, '01.01.1970');
-  const dev1 = mrPoet.addDev()
+  const dev1 = mrPoet.addDev('Dev1', 28, '01.01.1990', 40000);
+  const dev2 = mrPoet.addDev('Dev2', 40, '01.01.1978');
+  const dev3 = mrPoet.addDev('Dev3', 18, '01.01.2000', 20000);
+  const dev4 = mrPoet.addDev('Dev4', 18, '01.01.2000', 20000);
+
+  console.log('mrPoet.displayInfo(): ', mrPoet.displayInfo());
+  mrPoet.removeDev(1);
+  console.log('manager of dev3 before change: ',dev3.myManager);
+  dev3.changeManager(1);
+  console.log('manager of dev3 after change: ',dev3.myManager);
+  console.log('devList of mrPoet after all changes:', mrPoet.developers.getList());
+
 
 })();
