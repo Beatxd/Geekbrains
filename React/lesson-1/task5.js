@@ -20,8 +20,7 @@ for (let i = 1; i <= 10; i++) {
     xhttp.open("GET", url, true);
     xhttp.send();
   }));
-  Promise.all(arr).then(res => {
-    // без условия выполнится 10 раз. почему?
-    if (res.length === 10) console.log(res);
-  }).catch(err => {console.log(err)})
 }
+Promise.all(arr).then(res => {
+  console.log(res);
+}).catch(err => {console.log(err)});
