@@ -1,0 +1,23 @@
+{
+  "name": "lesson-2-webpack",
+  "version": "0.0.1",
+  "description": "webpack testing project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack --config webpack.config.js",
+    "server": "webpack-dev-server"
+  },
+  "author": "TsKon",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "node-static": "^0.7.10",
+    "underscore": "^1.8.3",
+    "webpack-dev-server": "2.11.1"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
