@@ -70,12 +70,13 @@
 "use strict";
 
 
-var User = __webpack_require__(1);
+var user = __webpack_require__(1);
 var $ = __webpack_require__(2);
 
-var john = new User('John', 'IT', 50000);
+var john = new user.User('John', 'Developers', 50000);
 $('#name').html('Hello, my name is ' + john.name);
 $('.about').html(john.info());
+console.log();
 
 /***/ }),
 /* 1 */
@@ -92,7 +93,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var User = function () {
+var User = exports.User = function () {
   function User() {
     var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
     var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -119,8 +120,6 @@ var User = function () {
 
   return User;
 }();
-
-exports.default = User;
 
 /***/ }),
 /* 2 */

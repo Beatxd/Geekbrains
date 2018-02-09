@@ -3,6 +3,7 @@ module.exports = {
   output: {
     filename: './dist/bundle.js'
   },
+  watch: true,
   module: {
     rules: [
       { test: /\.js$/,
