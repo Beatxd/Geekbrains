@@ -8,7 +8,7 @@ export class User {
 
   info(salery = null, department = null) {
     if (!salery && !department)
-      return `Name: ${this.name}; Department ${this.department}; Salery: ${this.salery}`;
+      return `Name: ${this.name}; Department: ${this.department}; Salery: ${this.salery}`;
     if (salery) this.salery = salery;
     if (department) this.department = department;
   }

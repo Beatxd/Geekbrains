@@ -118,7 +118,7 @@ var User = exports.User = function () {
       var salery = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-      if (!salery && !department) return 'Name: ' + this.name + '; Department ' + this.department + '; Salery: ' + this.salery;
+      if (!salery && !department) return 'Name: ' + this.name + '; Department: ' + this.department + '; Salery: ' + this.salery;
       if (salery) this.salery = salery;
       if (department) this.department = department;
     }
