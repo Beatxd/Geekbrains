@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -67,11 +67,18 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(1);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
-var user = __webpack_require__(1);
 var $ = __webpack_require__(2);
+var user = __webpack_require__(3);
 
 var john = new user.User('John', 'Developers', 50000);
 $('#name').html('Hello, my name is ' + john.name);
@@ -83,49 +90,6 @@ $('.container').click(function () {
     $('.container').append('<p id="date">Первое взаимодействие: ' + new Date() + '</p>');
   }
 });
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var User = exports.User = function () {
-  function User() {
-    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    var salery = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 30000;
-
-    _classCallCheck(this, User);
-
-    this.name = name;
-    this.department = department;
-    this.salery = salery;
-  }
-
-  _createClass(User, [{
-    key: 'info',
-    value: function info() {
-      var salery = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-      var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      if (!salery && !department) return 'Name: ' + this.name + '; Department: ' + this.department + '; Salery: ' + this.salery;
-      if (salery) this.salery = salery;
-      if (department) this.department = department;
-    }
-  }]);
-
-  return User;
-}();
 
 /***/ }),
 /* 2 */
@@ -10497,6 +10461,49 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var User = exports.User = function () {
+  function User() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    var salery = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 30000;
+
+    _classCallCheck(this, User);
+
+    this.name = name;
+    this.department = department;
+    this.salery = salery;
+  }
+
+  _createClass(User, [{
+    key: 'info',
+    value: function info() {
+      var salery = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      if (!salery && !department) return 'Name: ' + this.name + '; Department: ' + this.department + '; Salery: ' + this.salery;
+      if (salery) this.salery = salery;
+      if (department) this.department = department;
+    }
+  }]);
+
+  return User;
+}();
 
 /***/ })
 /******/ ]);

@@ -1,7 +1,15 @@
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
-  entry: './app.js',
+  context: path.resolve(__dirname, 'src'),
+  entry: {
+    app: ['./js/app.js']
+  },
   output: {
-    filename: './dist/bundle.js'
+    filename: './bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: "../"
   },
   watch: true,
   module: {
