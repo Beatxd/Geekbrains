@@ -76,9 +76,8 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
-
-var $ = __webpack_require__(2);
 var user = __webpack_require__(3);
 
 var john = new user.User('John', 'Developers', 50000);
@@ -91,6 +90,7 @@ $('.container').click(function () {
     $('.container').append('<p id="date">Первое взаимодействие: ' + new Date() + '</p>');
   }
 });
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 2 */
