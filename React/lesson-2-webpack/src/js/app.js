@@ -14,9 +14,24 @@ for(let i = 0; i < usersArr.length; i++){
 }
 
 $('.container').click(() => {
+  let date = new Date();
+  let dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long',
+    timezone: 'UTC',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+  date = date.toLocaleString('ru', dateOptions);
+  date = date.charAt(0).toUpperCase() + date.substr(1);
+
+
   if ($('p').is('#date')){
-    $('p#date').html('Последнее взаимодействие: ' + new Date());
+    $('p#date').html('Последнее взаимодействие: ' + date);
   } else {
-    $('.container').append('<p id="date">Первое взаимодействие: ' + new Date() + '</p>')
+    $('.container').append('<p id="date">Первое взаимодействие: ' + date + '</p>')
   }
 });

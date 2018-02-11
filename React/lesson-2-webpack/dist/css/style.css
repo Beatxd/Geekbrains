@@ -6,3 +6,12 @@ h1 {
 
 p {
   color: #ccc; }
+
+.userCard {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer; }
+  .userCard:hover {
+    background-color: #429b85; }
