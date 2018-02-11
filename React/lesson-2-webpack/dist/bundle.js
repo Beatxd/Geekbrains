@@ -951,7 +951,7 @@ module.exports = __webpack_require__(31);
 var User = __webpack_require__(17);
 var renderUserCard = __webpack_require__(18);
 
-var usersArr = [new User('John', 'Developers', 50000), new User('Agent Smith'), new User('Petr Semyonovich')];
+var usersArr = [new User('John', 'Developers', 50000), new User('Agent Smith', 'Bag`s Hunter', Infinity), new User('Petr Semyonovich')];
 
 for (var i = 0; i < usersArr.length; i++) {
   var div = document.createElement('div');
@@ -11364,8 +11364,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var User = function User() {
   var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  var salery = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 30000;
+  var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'IT';
+  var salery = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 35000;
 
   _classCallCheck(this, User);
 

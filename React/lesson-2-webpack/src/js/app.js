@@ -3,7 +3,7 @@ const renderUserCard = require('./components/render-user');
 
 let usersArr = [
   new User('John', 'Developers', 50000),
-  new User('Agent Smith'),
+  new User('Agent Smith', 'Bag`s Hunter', Infinity),
   new User('Petr Semyonovich')
 ];
 
