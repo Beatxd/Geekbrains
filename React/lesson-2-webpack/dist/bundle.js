@@ -948,12 +948,16 @@ module.exports = __webpack_require__(31);
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var user = __webpack_require__(17);
-var userCard = __webpack_require__(18);
+var User = __webpack_require__(17);
+var renderUserCard = __webpack_require__(18);
 
-var john = new user.User('John', 'Developers', 50000);
+var usersArr = [new User('John', 'Developers', 50000), new User('Agent Smith'), new User('Petr Semyonovich')];
 
-userCard.renderUser(document.querySelector('.container'), john);
+for (var i = 0; i < usersArr.length; i++) {
+  var div = document.createElement('div');
+  document.querySelector('.container').appendChild(div);
+  renderUserCard(div, usersArr[i]);
+}
 
 $('.container').click(function () {
   if ($('p').is('#date')) {
@@ -11342,41 +11346,23 @@ return jQuery;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var User = exports.User = function () {
-  function User() {
-    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    var salery = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 30000;
+var User = function User() {
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var salery = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 30000;
 
-    _classCallCheck(this, User);
+  _classCallCheck(this, User);
 
-    this.name = name;
-    this.department = department;
-    this.salery = salery;
-  }
+  this.name = name;
+  this.department = department;
+  this.salery = salery;
+};
 
-  _createClass(User, [{
-    key: 'info',
-    value: function info() {
-      var salery = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-      var department = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      if (!salery && !department) return 'Name: ' + this.name + '; Department: ' + this.department + '; Salery: ' + this.salery;
-      if (salery) this.salery = salery;
-      if (department) this.department = department;
-    }
-  }]);
-
-  return User;
-}();
+module.exports = function (name, department, salery) {
+  return new User(name, department, salery);
+};
 
 /***/ }),
 /* 18 */
@@ -11384,10 +11370,6 @@ var User = exports.User = function () {
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -11446,7 +11428,7 @@ function renderUser(container, userObj) {
 
   ReactDOM.render(React.createElement(UserCard, null), container);
 }
-exports.renderUser = renderUser;
+module.exports = renderUser;
 
 /***/ }),
 /* 19 */

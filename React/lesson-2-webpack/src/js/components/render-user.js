@@ -17,4 +17,4 @@ function renderUser(container, userObj){
   }
   ReactDOM.render(<UserCard/>, container)
 }
-export {renderUser}
+module.exports = renderUser;

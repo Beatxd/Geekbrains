@@ -1,9 +1,17 @@
-const user = require('./user.js');
-const userCard = require('./components/render-user');
+const User = require('./user.js');
+const renderUserCard = require('./components/render-user');
 
-const john = new user.User('John', 'Developers', 50000);
+let usersArr = [
+  new User('John', 'Developers', 50000),
+  new User('Agent Smith'),
+  new User('Petr Semyonovich')
+];
 
-userCard.renderUser(document.querySelector('.container'), john);
+for(let i = 0; i < usersArr.length; i++){
+  let div = document.createElement('div');
+  document.querySelector('.container').appendChild(div);
+  renderUserCard(div, usersArr[i])
+}
 
 $('.container').click(() => {
   if ($('p').is('#date')){
