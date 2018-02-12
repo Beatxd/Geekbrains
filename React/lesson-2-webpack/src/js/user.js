@@ -7,4 +7,4 @@ class User {
   }
 }
 
-module.exports = (name, department, salery) => {return new User(name, department, salery)};
+module.exports = User;

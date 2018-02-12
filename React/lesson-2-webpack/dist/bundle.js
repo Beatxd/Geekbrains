@@ -11374,9 +11374,7 @@ var User = function User() {
   this.salery = salery;
 };
 
-module.exports = function (name, department, salery) {
-  return new User(name, department, salery);
-};
+module.exports = User;
 
 /***/ }),
 /* 18 */
