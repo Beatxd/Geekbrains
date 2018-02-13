@@ -1,6 +1,6 @@
 // basic vars
 const path = require('path');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 
 // plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -41,6 +41,7 @@ module.exports = {
               {
                 loader: 'postcss-loader',
                 options: {
+                  sourceMap: true,
                   plugins: function () {
                     return [
                       require('precss'),
@@ -66,7 +67,20 @@ module.exports = {
     //   jQuery: 'jquery',
     //   jquery: 'jquery'
     // }),
-    new ExtractTextPlugin("./css/style.css"),
+    new ExtractTextPlugin("./css/style.css")
+    // new webpack.optimize.UglifyJsPlugin({
+    //   beautify: false,
+    //   comments: false,
+    //   compress: {
+    //     sequences     : true,
+    //     booleans      : true,
+    //     loops         : true,
+    //     unused      : true,
+    //     warnings    : false,
+    //     drop_console: true,
+    //     unsafe      : true
+    //   }
+    // })
   ]
 }
 ;
