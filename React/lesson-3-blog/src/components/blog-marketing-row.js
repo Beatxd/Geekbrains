@@ -10,8 +10,7 @@ export default class Row extends React.Component {
         </div>
       )
     });
-
-
+    
     return (
       <div className="col-lg-6">
         {component}
