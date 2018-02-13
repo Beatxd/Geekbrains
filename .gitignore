@@ -5,3 +5,5 @@
 /React/lesson-2-webpack/package-lock.json
 /React/lesson-3-blog/example/
 /React/lesson-3-blog/node_modules/
+/React/lesson-3-blog/dist/css/style.css.map
+/React/lesson-3-blog/dist/bundle.js.map
