@@ -35183,10 +35183,144 @@ exports.default = Header;
 
 /***/ }),
 /* 34 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: D:/Konstantin/PHPStormProjects/Geekbrains/React/lesson-4-react-events/src/components/blog-jumbotron.js: Unexpected token (42:7)\n\n\u001b[0m \u001b[90m 40 | \u001b[39m        jumbotronStyle \u001b[33m=\u001b[39m {backgroundColor\u001b[33m:\u001b[39m \u001b[32m'green'\u001b[39m}\u001b[33m;\u001b[39m\n \u001b[90m 41 | \u001b[39m        \u001b[36mbreak\u001b[39m\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 42 | \u001b[39m      }\u001b[33m,\u001b[39m\n \u001b[90m    | \u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 43 | \u001b[39m      \u001b[36mcase\u001b[39m \u001b[32m'black'\u001b[39m\u001b[33m:\u001b[39m {\n \u001b[90m 44 | \u001b[39m        jumbotronStyle \u001b[33m=\u001b[39m {backgroundColor\u001b[33m:\u001b[39m \u001b[32m'black'\u001b[39m}\u001b[33m;\u001b[39m\n \u001b[90m 45 | \u001b[39m        \u001b[36mbreak\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Jumbotron = function (_React$Component) {
+  _inherits(Jumbotron, _React$Component);
+
+  function Jumbotron() {
+    _classCallCheck(this, Jumbotron);
+
+    var _this = _possibleConstructorReturn(this, (Jumbotron.__proto__ || Object.getPrototypeOf(Jumbotron)).apply(this, arguments));
+
+    _this.state = {
+      showColors: false,
+      color: 'grey'
+    };
+    return _this;
+  }
+
+  _createClass(Jumbotron, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var colorSwitcher = void 0;
+      var colorSwitcherStyle = {
+        padding: '13px 12px 14px',
+        marginLeft: '10px',
+        color: 'green',
+        textShadow: '\n      -0 -1px 2px #FFFFFF, 0 -1px 2px #FFFFFF, -0 1px 2px #FFFFFF, 0 1px 2px #FFFFFF,\n      -1px -0 2px #FFFFFF, 1px -0 2px #FFFFFF, -1px 0 2px #FFFFFF, 1px 0 2px #FFFFFF',
+        fontWeight: '700',
+        background: '\n      repeating-linear-gradient(45deg, transparent, transparent 1em, #5A9C6E 0, #5A9C6E 2em,\n      transparent 0, transparent 3em, #A8BF5A 0, #A8BF5A 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em,\n      transparent 0, transparent 7em, #FABB 0, #FAD5BB 8em), \n      repeating-linear-gradient(-45deg,transparent, transparent 1em, #A8BF5A 0,#A8BF5A 2em,\n      transparent 0, transparent 3em, #FABB 0, #FAD5BB 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em), \n      #F2FEFF',
+        backgroundBlendMode: 'multiply'
+      };
+      var btnGreen = { backgroundColor: 'green' };
+      var btnBlack = { backgroundColor: 'black' };
+      var jumbotronStyle = {};
+      switch (this.state.color) {
+        case 'green':
+          {
+            jumbotronStyle = { backgroundColor: 'darkgreen', color: 'lightblue' };
+            break;
+          }
+        case 'black':
+          {
+            jumbotronStyle = { backgroundColor: 'black', color: 'white' };
+            break;
+          }
+      }
+
+      if (this.state.showColors) {
+        colorSwitcher = _react2.default.createElement(
+          'div',
+          { className: 'btn-group', role: 'group', 'aria-label': 'Basic example' },
+          _react2.default.createElement(
+            'button',
+            { type: 'button', style: btnGreen, className: 'btn btn-secondary',
+              onClick: function onClick() {
+                _this2.setState({ color: 'green' });
+              } },
+            'Green'
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'button', style: btnBlack, className: 'btn btn-secondary',
+              onClick: function onClick() {
+                _this2.setState({ color: 'black' });
+              } },
+            'Black'
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'button', className: 'btn btn-secondary',
+              onClick: function onClick() {
+                _this2.setState({ color: 'grey' });
+              } },
+            'Grey'
+          )
+        );
+      }
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'jumbotron', style: jumbotronStyle },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Jumbotron heading'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'lead' },
+          'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          _react2.default.createElement(
+            'a',
+            { className: 'btn btn-lg btn-success', href: '#', role: 'button', 'data-toggle': 'modal', 'data-target': '#myModal' },
+            'Login now!'
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'button', style: colorSwitcherStyle, className: 'btn btn-secondary', onClick: function onClick() {
+                _this2.setState({ showColors: !_this2.state.showColors });
+              } },
+            'Change color'
+          )
+        ),
+        colorSwitcher
+      );
+    }
+  }]);
+
+  return Jumbotron;
+}(_react2.default.Component);
+
+exports.default = Jumbotron;
 
 /***/ }),
 /* 35 */

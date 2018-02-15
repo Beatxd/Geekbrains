@@ -5,19 +5,15 @@ export default class Jumbotron extends React.Component {
     super(...arguments);
 
     this.state = {
-      showColors: false
+      showColors: false,
+      color: 'grey'
     };
-
-    this.showColorSwitcher = () => {
-      this.state.showColors = !this.state.showColors;
-    };
-    // binds
-    this.showColorSwitcher = this.showColorSwitcher.bind(this)
   }
   render(){
     let colorSwitcher;
     const colorSwitcherStyle = {
-      padding: '11px',
+      padding: '13px 12px 14px',
+      marginLeft: '10px',
       color: 'green',
       textShadow:`
       -0 -1px 2px #FFFFFF, 0 -1px 2px #FFFFFF, -0 1px 2px #FFFFFF, 0 1px 2px #FFFFFF,
@@ -30,18 +26,18 @@ export default class Jumbotron extends React.Component {
       repeating-linear-gradient(-45deg,transparent, transparent 1em, #A8BF5A 0,#A8BF5A 2em,
       transparent 0, transparent 3em, #FABB 0, #FAD5BB 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em), 
       #F2FEFF`,
-    backgroundBlendMode: 'multiply'
+      backgroundBlendMode: 'multiply'
     };
     const btnGreen = {backgroundColor: 'green'};
     const btnBlack = {backgroundColor: 'black'};
     let jumbotronStyle = {};
-    switch(color){
+    switch(this.state.color){
       case 'green': {
-        jumbotronStyle = {backgroundColor: 'green'};
+        jumbotronStyle = {backgroundColor: 'darkgreen', color: 'lightblue'};
         break;
-      },
+      }
       case 'black': {
-        jumbotronStyle = {backgroundColor: 'black'};
+        jumbotronStyle = {backgroundColor: 'black', color: 'white'};
         break;
       }
     }
@@ -49,9 +45,12 @@ export default class Jumbotron extends React.Component {
     if(this.state.showColors){
       colorSwitcher = (
         <div className="btn-group" role="group" aria-label="Basic example">
-          <button type="button" style={btnGreen} className="btn btn-secondary">Green</button>
-          <button type="button" style={btnBlack} className="btn btn-secondary">Black</button>
-          <button type="button" className="btn btn-secondary">Grey</button>
+          <button type="button" style={btnGreen} className="btn btn-secondary"
+                  onClick={() => {this.setState({color: 'green'})}}>Green</button>
+          <button type="button" style={btnBlack} className="btn btn-secondary"
+                  onClick={() => {this.setState({color: 'black'})}}>Black</button>
+          <button type="button" className="btn btn-secondary"
+                  onClick={() => {this.setState({color: 'grey'})}}>Grey</button>
         </div>
       );
     }
@@ -60,10 +59,13 @@ export default class Jumbotron extends React.Component {
       <div className="jumbotron" style={jumbotronStyle}>
         <h1>Jumbotron heading</h1>
         <p className="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a className="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#myModal">Login now!</a></p>
-        <p><button type="button" style={colorSwitcherStyle} className="btn btn-secondary" onClick={() => {
-          this.setState({showColors: !this.state.showColors})
-        }}>Change color</button></p>
+        <p>
+          <a className="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#myModal">Login now!</a>
+          <button type="button" style={colorSwitcherStyle} className="btn btn-secondary" onClick={() => {
+            this.setState({showColors: !this.state.showColors})
+          }}>Change color</button>
+        </p>
+
         {colorSwitcher}
       </div>
     )
