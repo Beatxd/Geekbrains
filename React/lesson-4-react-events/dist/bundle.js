@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(17);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(16);
-} else {
-  module.exports = __webpack_require__(17);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -429,7 +429,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -489,7 +489,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -745,7 +745,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 10 */
@@ -938,7 +938,7 @@ module.exports = focusNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(38);
+module.exports = __webpack_require__(39);
 
 
 /***/ }),
@@ -948,7 +948,7 @@ module.exports = __webpack_require__(38);
 "use strict";
 
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -958,7 +958,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 __webpack_require__(28);
 
-var _blogContainer = __webpack_require__(32);
+var _blogContainer = __webpack_require__(33);
 
 var _blogContainer2 = _interopRequireDefault(_blogContainer);
 
@@ -2359,7 +2359,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 18 */
@@ -2424,7 +2424,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(23);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 20 */
@@ -2443,7 +2443,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),l=__webpack_require__(8),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),fa=__webpack_require__(12),ia=__webpack_require__(13),D=__webpack_require__(4);
+var aa=__webpack_require__(0),l=__webpack_require__(8),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),fa=__webpack_require__(12),ia=__webpack_require__(13),D=__webpack_require__(4);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -2740,7 +2740,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(8);
@@ -18118,7 +18118,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 24 */
@@ -35021,7 +35021,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 32 */
+/* 32 */,
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35033,25 +35034,29 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _blogHeader = __webpack_require__(33);
+var _blogHeader = __webpack_require__(34);
 
 var _blogHeader2 = _interopRequireDefault(_blogHeader);
 
-var _blogJumbotron = __webpack_require__(34);
+var _blogJumbotron = __webpack_require__(35);
 
 var _blogJumbotron2 = _interopRequireDefault(_blogJumbotron);
 
-var _blogMarketing = __webpack_require__(35);
+var _blogMarketing = __webpack_require__(36);
 
 var _blogMarketing2 = _interopRequireDefault(_blogMarketing);
 
-var _loginModal = __webpack_require__(37);
+var _loginModal = __webpack_require__(38);
 
 var _loginModal2 = _interopRequireDefault(_loginModal);
+
+var _data = __webpack_require__(45);
+
+var _data2 = _interopRequireDefault(_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35062,6 +35067,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // components for blog layout
+
+
+//data
 
 
 var Blog = function (_React$Component) {
@@ -35081,7 +35089,7 @@ var Blog = function (_React$Component) {
         { className: 'container' },
         _react2.default.createElement(_loginModal2.default, null),
         _react2.default.createElement(_blogHeader2.default, null),
-        _react2.default.createElement(_blogJumbotron2.default, null),
+        _react2.default.createElement(_blogJumbotron2.default, { styles: _data2.default.jumbotronSwitcher }),
         _react2.default.createElement(_blogMarketing2.default, null)
       );
     }
@@ -35093,7 +35101,7 @@ var Blog = function (_React$Component) {
 exports.default = Blog;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35105,7 +35113,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -35182,7 +35190,7 @@ var Header = function (_React$Component) {
 exports.default = Header;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35194,7 +35202,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -35226,23 +35234,15 @@ var Jumbotron = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var colorSwitcher = void 0;
-      var colorSwitcherStyle = {
-        padding: '13px 12px 14px',
-        marginLeft: '10px',
-        color: 'green',
-        textShadow: '\n      -0 -1px 2px #FFFFFF, 0 -1px 2px #FFFFFF, -0 1px 2px #FFFFFF, 0 1px 2px #FFFFFF,\n      -1px -0 2px #FFFFFF, 1px -0 2px #FFFFFF, -1px 0 2px #FFFFFF, 1px 0 2px #FFFFFF',
-        fontWeight: '700',
-        background: '\n      repeating-linear-gradient(45deg, transparent, transparent 1em, #5A9C6E 0, #5A9C6E 2em,\n      transparent 0, transparent 3em, #A8BF5A 0, #A8BF5A 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em,\n      transparent 0, transparent 7em, #FABB 0, #FAD5BB 8em), \n      repeating-linear-gradient(-45deg,transparent, transparent 1em, #A8BF5A 0,#A8BF5A 2em,\n      transparent 0, transparent 3em, #FABB 0, #FAD5BB 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em), \n      #F2FEFF',
-        backgroundBlendMode: 'multiply'
-      };
+      // color switcher
       var btnGreen = { backgroundColor: 'green' };
       var btnBlack = { backgroundColor: 'black' };
+
       var jumbotronStyle = {};
       switch (this.state.color) {
         case 'green':
           {
-            jumbotronStyle = { backgroundColor: 'darkgreen', color: 'lightblue' };
+            jumbotronStyle = { backgroundColor: 'lightgreen', color: 'black' };
             break;
           }
         case 'black':
@@ -35251,6 +35251,9 @@ var Jumbotron = function (_React$Component) {
             break;
           }
       }
+
+      // btn to open color switcher
+      var colorSwitcher = void 0;
 
       if (this.state.showColors) {
         colorSwitcher = _react2.default.createElement(
@@ -35306,7 +35309,7 @@ var Jumbotron = function (_React$Component) {
           ),
           _react2.default.createElement(
             'button',
-            { type: 'button', style: colorSwitcherStyle, className: 'btn btn-secondary', onClick: function onClick() {
+            { type: 'button', style: this.props.styles, className: 'btn btn-secondary', onClick: function onClick() {
                 _this2.setState({ showColors: !_this2.state.showColors });
               } },
             'Change color'
@@ -35323,7 +35326,7 @@ var Jumbotron = function (_React$Component) {
 exports.default = Jumbotron;
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35335,11 +35338,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _blogMarketingRow = __webpack_require__(36);
+var _blogMarketingRow = __webpack_require__(37);
 
 var _blogMarketingRow2 = _interopRequireDefault(_blogMarketingRow);
 
@@ -35447,7 +35450,7 @@ var RowMarketing = function (_React$Component) {
 exports.default = RowMarketing;
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35459,7 +35462,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -35506,7 +35509,7 @@ var Row = function (_React$Component) {
 exports.default = Row;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35518,7 +35521,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -35618,10 +35621,37 @@ var Modal = function (_React$Component) {
 exports.default = Modal;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var ColorSwitcherStyle = {
+    padding: '13px 12px 14px',
+    marginLeft: '10px',
+    color: 'green',
+    textShadow: '\n      -0 -1px 2px #FFFFFF, 0 -1px 2px #FFFFFF, -0 1px 2px #FFFFFF, 0 1px 2px #FFFFFF,\n      -1px -0 2px #FFFFFF, 1px -0 2px #FFFFFF, -1px 0 2px #FFFFFF, 1px 0 2px #FFFFFF',
+    fontWeight: '700',
+    background: '\n      repeating-linear-gradient(45deg, transparent, transparent 1em, #5A9C6E 0, #5A9C6E 2em,\n      transparent 0, transparent 3em, #A8BF5A 0, #A8BF5A 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em,\n      transparent 0, transparent 7em, #FABB 0, #FAD5BB 8em), \n      repeating-linear-gradient(-45deg,transparent, transparent 1em, #A8BF5A 0,#A8BF5A 2em,\n      transparent 0, transparent 3em, #FABB 0, #FAD5BB 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em), \n      #F2FEFF',
+    backgroundBlendMode: 'multiply'
+};
+
+exports.default = { jumbotronSwitcher: ColorSwitcherStyle };
 
 /***/ })
 /******/ ]);

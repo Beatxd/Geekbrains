@@ -10,30 +10,14 @@ export default class Jumbotron extends React.Component {
     };
   }
   render(){
-    let colorSwitcher;
-    const colorSwitcherStyle = {
-      padding: '13px 12px 14px',
-      marginLeft: '10px',
-      color: 'green',
-      textShadow:`
-      -0 -1px 2px #FFFFFF, 0 -1px 2px #FFFFFF, -0 1px 2px #FFFFFF, 0 1px 2px #FFFFFF,
-      -1px -0 2px #FFFFFF, 1px -0 2px #FFFFFF, -1px 0 2px #FFFFFF, 1px 0 2px #FFFFFF`,
-      fontWeight: '700',
-      background: `
-      repeating-linear-gradient(45deg, transparent, transparent 1em, #5A9C6E 0, #5A9C6E 2em,
-      transparent 0, transparent 3em, #A8BF5A 0, #A8BF5A 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em,
-      transparent 0, transparent 7em, #FABB 0, #FAD5BB 8em), 
-      repeating-linear-gradient(-45deg,transparent, transparent 1em, #A8BF5A 0,#A8BF5A 2em,
-      transparent 0, transparent 3em, #FABB 0, #FAD5BB 4em, transparent 0, transparent 5em, #FAC46E 0, #FAC46E 6em), 
-      #F2FEFF`,
-      backgroundBlendMode: 'multiply'
-    };
+    // color switcher
     const btnGreen = {backgroundColor: 'green'};
     const btnBlack = {backgroundColor: 'black'};
+
     let jumbotronStyle = {};
     switch(this.state.color){
       case 'green': {
-        jumbotronStyle = {backgroundColor: 'darkgreen', color: 'lightblue'};
+        jumbotronStyle = {backgroundColor: 'lightgreen', color: 'black'};
         break;
       }
       case 'black': {
@@ -41,6 +25,9 @@ export default class Jumbotron extends React.Component {
         break;
       }
     }
+
+    // btn to open color switcher
+    let colorSwitcher;
 
     if(this.state.showColors){
       colorSwitcher = (
@@ -61,11 +48,10 @@ export default class Jumbotron extends React.Component {
         <p className="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         <p>
           <a className="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#myModal">Login now!</a>
-          <button type="button" style={colorSwitcherStyle} className="btn btn-secondary" onClick={() => {
+          <button type="button" style={this.props.styles} className="btn btn-secondary" onClick={() => {
             this.setState({showColors: !this.state.showColors})
           }}>Change color</button>
         </p>
-
         {colorSwitcher}
       </div>
     )
