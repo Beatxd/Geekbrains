@@ -35093,6 +35093,11 @@ var Blog = function (_React$Component) {
         _react2.default.createElement(_blogMarketing2.default, null)
       );
     }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      alert('Компонент отрендерен');
+    }
   }]);
 
   return Blog;
