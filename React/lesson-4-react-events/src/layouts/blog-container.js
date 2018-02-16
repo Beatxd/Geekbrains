@@ -21,6 +21,6 @@ export default class Blog extends React.Component {
     )
   }
   componentDidMount(){
-    alert('Компонент отрендерен');
+    alert('Компонент отрендерен!');
   }
 }
