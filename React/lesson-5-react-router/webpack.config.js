@@ -21,7 +21,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/js'),
     publicPath: "./js/"
   },
-  devtool: (isProduction) ? '' : 'source-map',
+  devtool: (isProduction) ? '' : 'source-map-inline',
   module: {
     rules: [
       {test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader"},
@@ -62,7 +62,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("../css/[name].css"),
-    // new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin(
       [{from:'./index.html', to: '../'}]
     )

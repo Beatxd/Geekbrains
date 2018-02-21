@@ -20,7 +20,7 @@ export default class Posts extends React.Component {
       <div>
         <button type="button" className="btn btn-outline-info" data-toggle="modal"
                 data-target={"#userModal" + this.props.userId}>
-          Follower posts
+          Follower`s posts
         </button>
         <div className="modal fade" id={"userModal" + this.props.userId} tabIndex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
