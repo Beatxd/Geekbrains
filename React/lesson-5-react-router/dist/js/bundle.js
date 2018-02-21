@@ -43866,6 +43866,8 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouter = __webpack_require__(38);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -43884,48 +43886,33 @@ var PageNotFound = function (_React$Component) {
   }
 
   _createClass(PageNotFound, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "row" },
+        'div',
+        { className: 'row' },
         _react2.default.createElement(
-          "div",
-          { className: "col-md-12" },
+          'h1',
+          { className: 'center more-space-m' },
+          'Oops! 404 Not Found'
+        ),
+        _react2.default.createElement(
+          'h4',
+          { className: 'center' },
+          'Sorry, an error has occured, Requested page not found!'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'center more-space-p' },
           _react2.default.createElement(
-            "div",
-            { className: "error-template" },
-            _react2.default.createElement(
-              "h1",
-              null,
-              "Oops!"
-            ),
-            _react2.default.createElement(
-              "h2",
-              null,
-              "404 Not Found"
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "error-details" },
-              "Sorry, an error has occured, Requested page not found!"
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "error-actions" },
-              _react2.default.createElement(
-                "a",
-                { href: "#", className: "btn btn-primary btn-lg" },
-                _react2.default.createElement("span", { className: "glyphicon glyphicon-home" }),
-                "Take Me Home "
-              ),
-              _react2.default.createElement(
-                "a",
-                { href: "#", className: "btn btn-default btn-lg" },
-                _react2.default.createElement("span", { className: "glyphicon glyphicon-envelope" }),
-                " Contact Support "
-              )
-            )
+            _reactRouter.Link,
+            { to: '/', className: 'btn btn-info btn-lg more-space-m' },
+            'Take Me Home'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', className: 'btn btn-outline-secondary btn-lg more-space-m' },
+            'Contact Support'
           )
         )
       );

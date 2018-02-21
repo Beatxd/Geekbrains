@@ -6493,4 +6493,17 @@ body {
 .users-container {
   text-align: center; }
 
+.center {
+  margin: 0 auto; }
+
+.more-space-p {
+  padding: 10px; }
+
+.more-space-m {
+  margin: 15px; }
+
+.center {
+  width: 100%;
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map*/
