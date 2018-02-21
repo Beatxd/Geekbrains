@@ -6,9 +6,9 @@ import 'bootstrap';
 // blog layout
 import Blog from './layouts/blog-container';
 // components
-import Marketing from './components/blog-marketing';
-import PageNotFound from './components/blog-404'
-import Followers from './components/blog-followers'
+import Marketing from './components/blog-sub-pages/blog-marketing';
+import PageNotFound from './components/blog-sub-pages/blog-404'
+import Followers from './components/blog-sub-pages/blog-users'
 
 ReactDOM.render(
   <Router history={browserHistory}>
