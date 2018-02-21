@@ -54,7 +54,7 @@ export default class Jumbotron extends React.Component {
         <p className="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         <p>
           <a className="btn btn-lg btn-success" href="#" role="button" data-toggle="modal" data-target="#myModal">Login now!</a>
-          <button type="button" style={this.props.styles} className="btn btn-secondary" onClick={() => {
+          <button type="button" style={this.props.data} className="btn btn-secondary" onClick={() => {
             this.setState({showColors: !this.state.showColors})
           }}>Change color</button>
         </p>

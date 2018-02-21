@@ -1,3 +1,4 @@
+import React from 'react';
 const ColorSwitcherStyle = {
   padding: '13px 12px 14px',
   marginLeft: '10px',
@@ -16,4 +17,33 @@ const ColorSwitcherStyle = {
   backgroundBlendMode: 'multiply'
 };
 
-export default {jumbotronSwitcher: ColorSwitcherStyle};
+const row1 = [
+  {
+    header: <h4>Subheading</h4>,
+    text: <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+  },
+  {
+    header: <h4>Subheading</h4>,
+    text: <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
+      fermentum.</p>
+  },
+  {
+    header: <h4>Subheading</h4>,
+    text: <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  }];
+const row2 = [
+  {
+    header: <h4>Subheading</h4>,
+    text: <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+  },
+  {
+    header: <h4>Subheading</h4>,
+    text: <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
+      fermentum.</p>
+  },
+  {
+    header: <h4>Subheading</h4>,
+    text: <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  }];
+
+export default {jumbotronSwitcher: ColorSwitcherStyle, row1: row1,  row2: row2};
