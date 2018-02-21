@@ -21,7 +21,7 @@ export default class Blog extends React.Component {
         <BlogHeader/>
         <Jumbotron data={data.jumbotronSwitcher}/>
         <Menu menuName="Sub Menu" path={window.location.pathname}/>
-        <RowMarketing path={window.location.pathname} data={data}/>
+        <div className="row">{this.props.children}</div>
       </div>
     )
   }

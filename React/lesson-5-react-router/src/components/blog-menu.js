@@ -9,9 +9,9 @@ export default class Menu extends React.Component{
   render(){
     return(
       <ul className="nav nav-tabs">
-        <span className="badge badge-secondary">{this.props.menuName}</span>
-        <MenuItem href="/" active={this.isActive('/')}>Your posts</MenuItem>
+        <MenuItem href="/" active={this.isActive('/')}>Posts</MenuItem>
         <MenuItem href="/followers" active={this.isActive('/followers')}>Followers</MenuItem>
+        <MenuItem href="/notFound" active={this.isActive('/notFound')}>page 404</MenuItem>
       </ul>
     )
   }

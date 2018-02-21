@@ -1,4 +1,24 @@
 import React from 'react';
+import axios from 'axios';
+
+let users = [];
+
+axios
+  .get('https://jsonplaceholder.typicode.com/users')
+  .then((response) => {
+    let { data } = response;
+    data.forEach(item => {users.push(item)});
+  });
+
+let userPosts = [];
+
+axios
+  .get('https://jsonplaceholder.typicode.com/posts')
+  .then((response) => {
+    let { data } = response;
+    data.forEach(item => {userPosts.push(item)});
+  });
+
 const ColorSwitcherStyle = {
   padding: '13px 12px 14px',
   marginLeft: '10px',
@@ -16,8 +36,7 @@ const ColorSwitcherStyle = {
       #F2FEFF`,
   backgroundBlendMode: 'multiply'
 };
-
-const row1 = [
+const postsRow1 = [
   {
     header: <h4>Subheading</h4>,
     text: <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -31,7 +50,7 @@ const row1 = [
     header: <h4>Subheading</h4>,
     text: <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
   }];
-const row2 = [
+const postsRow2 = [
   {
     header: <h4>Subheading</h4>,
     text: <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -46,4 +65,4 @@ const row2 = [
     text: <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
   }];
 
-export default {jumbotronSwitcher: ColorSwitcherStyle, row1: row1,  row2: row2};
+export default {jumbotronSwitcher: ColorSwitcherStyle, postsRow1: postsRow1, postsRow2: postsRow2, users: users, userPosts: userPosts};
