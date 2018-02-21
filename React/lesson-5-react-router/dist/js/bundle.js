@@ -43893,12 +43893,12 @@ var PageNotFound = function (_React$Component) {
         { className: 'row' },
         _react2.default.createElement(
           'h1',
-          { className: 'center more-space-m' },
+          { className: 'center-children more-space-m' },
           'Oops! 404 Not Found'
         ),
         _react2.default.createElement(
           'h4',
-          { className: 'center' },
+          { className: 'center-children' },
           'Sorry, an error has occured, Requested page not found!'
         ),
         _react2.default.createElement(
@@ -44153,7 +44153,7 @@ var Posts = function (_React$Component) {
         if (post.userId === _this2.props.userId) {
           return _react2.default.createElement(
             'div',
-            { key: 'post-' + index },
+            { key: 'post-' + index, className: 'post-hr' },
             _react2.default.createElement(
               'h3',
               null,
@@ -44168,8 +44168,7 @@ var Posts = function (_React$Component) {
               'p',
               null,
               'post id: ' + post.id
-            ),
-            _react2.default.createElement('hr', null)
+            )
           );
         }
       });

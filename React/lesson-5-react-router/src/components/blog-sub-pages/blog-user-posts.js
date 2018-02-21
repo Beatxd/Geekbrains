@@ -7,11 +7,10 @@ export default class Posts extends React.Component {
     let posts = this.props.data.map((post, index) => {
       if (post.userId === this.props.userId) {
         return (
-          <div key={'post-' + index}>
+          <div key={'post-' + index} className="post-hr">
             <h3>{post.title}</h3>
             <p>{post.body}</p>
             <p>{'post id: ' + post.id}</p>
-            <hr/>
           </div>
         )
       }

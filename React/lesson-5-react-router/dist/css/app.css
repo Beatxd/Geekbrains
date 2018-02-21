@@ -6502,8 +6502,15 @@ body {
 .more-space-m {
   margin: 15px; }
 
-.center {
+.center-children {
   width: 100%;
   text-align: center; }
+
+.post-hr:not(:last-child):after {
+  content: '';
+  min-height: 1px;
+  min-width: 90%;
+  display: inline-block;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent); }
 
 /*# sourceMappingURL=app.css.map*/
