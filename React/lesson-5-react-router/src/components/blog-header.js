@@ -11,7 +11,7 @@ export default class Header extends React.Component {
             <li role="presentation"><a href="#">Contact</a></li>
           </ul>
         </nav>
-        <h3 className="text-muted">Project name</h3>
+        <h3 className="text-muted">Blog of successful developer</h3>
       </div>
     )
   }

@@ -6444,7 +6444,7 @@ body {
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
   color: #fff;
-  background-color: #337ab7; }
+  background-color: #2da2b7; }
 
 .nav-pills > li > a {
   border-radius: 4px; }
@@ -6453,7 +6453,7 @@ body {
   position: relative;
   display: block;
   padding: 10px 15px;
-  color: #337ab7;
+  color: #2da2b7;
   text-decoration: none; }
   .nav > li > a:hover, .nav > li > a:focus {
     background-color: #eee; }

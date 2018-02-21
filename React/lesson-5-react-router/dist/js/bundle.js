@@ -42514,7 +42514,7 @@ var Header = function (_React$Component) {
         _react2.default.createElement(
           "h3",
           { className: "text-muted" },
-          "Project name"
+          "Blog of successful developer"
         )
       );
     }
@@ -42640,7 +42640,7 @@ var Jumbotron = function (_React$Component) {
           null,
           _react2.default.createElement(
             'a',
-            { className: 'btn btn-lg btn-success', href: '#', role: 'button', 'data-toggle': 'modal', 'data-target': '#myModal' },
+            { className: 'btn btn-lg btn-info', href: '#', role: 'button', 'data-toggle': 'modal', 'data-target': '#myModal' },
             'Login now!'
           ),
           _react2.default.createElement(
