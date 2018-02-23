@@ -9,8 +9,8 @@ import data from '../../data/data';
 export default class Jumbotron extends React.Component {
   constructor() {
     super(...arguments);
-    
   }
+
   render(){
     if (!data.users.length){
       return null;

@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 
 export default class PageNotFound extends React.Component {
   render() {
+
     return (
       <div className='row'>
         <h1 className='center-children more-space-m'>Oops! 404 Not Found</h1>

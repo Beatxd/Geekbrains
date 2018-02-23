@@ -6,6 +6,8 @@ import Jumbotron from '../components/blog-jumbotron';
 import Modal from '../components/login-modal';
 import Menu from '../components/blog-sub-menu/blog-menu';
 
+
+
 //data
 import data from '../data/data';
 
@@ -24,7 +26,5 @@ export default class Blog extends React.Component {
       </div>
     )
   }
-  componentDidMount(){
-    // alert('Компонент отрендерен!');
-  }
+
 }

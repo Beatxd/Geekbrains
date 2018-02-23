@@ -13,7 +13,7 @@ export default class PostsList extends React.Component {
     });
 
     return (
-      <div className="panel panel-default">
+      <div>
         {posts}
       </div>
     )
