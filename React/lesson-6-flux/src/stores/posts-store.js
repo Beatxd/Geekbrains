@@ -17,10 +17,11 @@ class PostsStore extends EventEmitter {
     this.fetchPostsEnd = this.fetchPostsEnd.bind(this);
     this.change = this.change.bind(this);
     this.addPost = this.addPost.bind(this);
+    this.handleActions = this.handleActions.bind(this);
   }
 
   fetchPostsStart() {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('https://jsonplaceholder.typicode.com/posts/')
       .then((res) => {
         let {data} = res;
         dispatcher.dispatch({
@@ -55,9 +56,14 @@ class PostsStore extends EventEmitter {
         break;
       }
       case FETCH_POSTS_END:{
-        this.fetchPostsEnd();
+        this.fetchPostsEnd(action.payload);
         break;
       }
     }
   }
 }
+
+const postsStore = new PostsStore();
+dispatcher.register(postsStore.handleActions);
+
+export default postsStore;
