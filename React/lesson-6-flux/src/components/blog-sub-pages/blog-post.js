@@ -11,7 +11,7 @@ export default class Post extends React.Component {
             {this.props.body}
           </p>
         </div>
-        <div id={this.props.id}>
+        <div>
         <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => {
           delPost(this.props.id)}}>Del</button>
         <button type="button" className="btn btn-outline-secondary btn-sm">Edit</button>

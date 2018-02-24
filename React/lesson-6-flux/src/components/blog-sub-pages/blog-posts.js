@@ -3,7 +3,7 @@ import React from 'react';
 //components
 import PostsList from './blog-posts-list';
 import PostsStore from '../../stores/posts-store';
-import {addPost, fetchPosts, delPost} from '../../actions/posts-actions';
+import {addPost, fetchPosts} from '../../actions/posts-actions';
 
 export default class Posts extends React.Component {
   constructor() {
