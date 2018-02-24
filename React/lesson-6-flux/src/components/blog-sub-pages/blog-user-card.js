@@ -5,7 +5,6 @@ import Posts from './blog-user-posts';
 import {blockFollower} from '../../actions/followers-actions';
 
 //data
-import data from '../../data/data';
 
 export default class User extends React.Component {
   render() {
@@ -26,7 +25,8 @@ export default class User extends React.Component {
           <p>{this.props.email}</p>
           <p>{this.props.phone}</p>
           <p>{this.props.website}</p>
-          <Posts data={data.userPosts} userName={this.props.username} userId={this.props.id}/>
+          <Posts data={this.props.posts} userName={this.props.username} userId={this.props.id}/>
+          {/*<Posts userName={this.props.username} userId={this.props.id}/>*/}
         </div>
       </div>
     );

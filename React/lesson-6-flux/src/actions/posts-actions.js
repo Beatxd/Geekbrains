@@ -10,9 +10,8 @@ export function addPost({title, userId, body}) {
   });
 }
 
-export function editPost({id, title, userId, body}) {
-  const post = {id, title, userId, body};
-
+export function editPost({id, title, body}) {
+  const post = {id, title, body};
   dispatcher.dispatch({
     type: EDIT_POST,
     payload: post

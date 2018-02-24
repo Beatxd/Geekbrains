@@ -5,6 +5,7 @@ import axios from 'axios';
 import {
   ADD_POST,
   DEL_POST,
+  EDIT_POST,
   FETCH_POSTS_START,
   FETCH_POSTS_END
 } from '../const/posts-constants';
@@ -18,6 +19,7 @@ class PostsStore extends EventEmitter {
     this.fetchPostsEnd = this.fetchPostsEnd.bind(this);
     this.change = this.change.bind(this);
     this.addPost = this.addPost.bind(this);
+    this.editPost = this.editPost.bind(this);
     this.delPost = this.delPost.bind(this);
     this.handleActions = this.handleActions.bind(this);
   }
@@ -48,6 +50,16 @@ class PostsStore extends EventEmitter {
     this.change();
   }
 
+  editPost(currentPost){
+    this.posts.forEach((post) => {
+      if (currentPost.id === post.id){
+        post.title = currentPost.title;
+        post.body = currentPost.body;
+      }
+    });
+    this.change();
+  }
+
   delPost(id){
     this.posts.forEach((post, index, arr) => {
       if (id === post.id){
@@ -61,6 +73,10 @@ class PostsStore extends EventEmitter {
     switch (action.type){
       case ADD_POST:{
         this.addPost(action.payload);
+        break;
+      }
+      case EDIT_POST:{
+        this.editPost(action.payload);
         break;
       }
       case DEL_POST:{

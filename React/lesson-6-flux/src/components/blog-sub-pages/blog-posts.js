@@ -18,9 +18,9 @@ export default class Posts extends React.Component {
   }
 
   newPost() {
-    let body = document.querySelector('#post-text').value || 'empty theme';
+    let body = document.querySelector('#post-text').value || 'empty body';
     let userId = 1;
-    let title = document.querySelector('#post-theme').value || 'empty body';
+    let title = document.querySelector('#post-theme').value || 'empty theme';
 
     document.querySelector('#post-theme').value = '';
     document.querySelector('#post-text').value = '';

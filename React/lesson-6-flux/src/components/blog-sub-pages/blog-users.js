@@ -4,9 +4,8 @@ import React from 'react';
 import User from './blog-user-card';
 import FollowersStore from '../../stores/followers-store';
 import {fetchFollowers} from '../../actions/followers-actions';
-
-//data
-// import data from '../../data/data';
+import PostsStore from '../../stores/posts-store';
+import {fetchPosts} from '../../actions/posts-actions';
 
 export default class Jumbotron extends React.Component {
   constructor() {
@@ -14,9 +13,11 @@ export default class Jumbotron extends React.Component {
 
     this.state = {
       users: [],
+      posts: []
     };
 
     this.onFollowerChange = this.onFollowerChange.bind(this);
+    this.onPostChange = this.onPostChange.bind(this);
   }
 
 
@@ -25,17 +26,25 @@ export default class Jumbotron extends React.Component {
       users: users,
     })
   }
+  onPostChange(posts) {
+    this.setState({
+      posts: posts,
+    })
+  }
 
   componentWillMount() {
     FollowersStore.on('change', this.onFollowerChange);
+    PostsStore.on('change', this.onPostChange);
   }
 
   componentDidMount() {
     fetchFollowers();
+    fetchPosts();
   }
 
   componentWillUnmount() {
     FollowersStore.removeListener('change', this.onFollowerChange);
+    PostsStore.removeListener('change', this.onPostChange);
   }
 
   render(){
@@ -44,7 +53,7 @@ export default class Jumbotron extends React.Component {
     }
 
     let users = this.state.users.map((user, index) => {
-      return <User key={index} {...user}/>
+      return <User key={index} {...user} posts={this.state.posts}/>
     });
 
     return (

@@ -11,7 +11,6 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const isProduction = (process.env.NODE_ENV === 'production');
 
 module.exports = {
-  //basic path to project
   context: path.resolve(__dirname, 'src'),
   entry: {
     app: ['./app.js', './scss/style.scss']
@@ -21,7 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/js'),
     publicPath: "./js/"
   },
-  devtool: (isProduction) ? '' : 'source-map-inline',
+  devtool: (isProduction) ? '' : 'source-map',
   module: {
     rules: [
       {test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader"},
@@ -73,11 +72,11 @@ if (isProduction) {
   module.exports.plugins.push(
     new UglifyJSPlugin({sourceMap: true})
   );
-  module.exports.plugins.push(
-    new ImageminPlugin({
-      test: /\.(png|jpe?g|dif|svg)$/i
-    })
-  );
+  // module.exports.plugins.push(
+  //   new ImageminPlugin({
+  //     test: /\.(png|jpe?g|dif|svg)$/i
+  //   })
+  // );
   module.exports.plugins.push(
     new webpack.LoaderOptionsPlugin({
       minimize:true

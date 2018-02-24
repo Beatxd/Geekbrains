@@ -7,7 +7,7 @@
     "build": "webpack",
     "watch": "webpack -w",
     "server": "webpack-dev-server --open",
-    "prodaction": "webpack -p"
+    "production": "webpack -p"
   },
   "author": "TsKon",
   "license": "MIT",
