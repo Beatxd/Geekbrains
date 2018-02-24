@@ -180,7 +180,8 @@ body {
   margin: 5px auto;
   width: 96%;
 }
-.btn-outline-danger{
+.btn-outline-danger, .btn-outline-secondary{
   max-width: 100px;
   margin: 0;
+  display: inline-block;
 }

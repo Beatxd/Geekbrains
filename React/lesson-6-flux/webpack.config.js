@@ -23,7 +23,7 @@ module.exports = {
   },
   devtool: (isProduction) ? '' : 'source-map-inline',
   module: {
-    rules: [
+    rules: [qwertytele2k
       {test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader"},
 
       {

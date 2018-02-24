@@ -40,12 +40,6 @@ export default class Posts extends React.Component {
 
   componentDidMount() {
     fetchPosts();
-    document.querySelector('.content').addEventListener('click', (e) => {
-      if (e.target.classList.contains('btn-outline-danger')){
-        console.log(e.target);
-        delPost(+e.target.id);
-      }
-    });
   }
 
   componentWillUnmount() {

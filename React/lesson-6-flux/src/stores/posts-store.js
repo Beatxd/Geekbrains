@@ -18,6 +18,7 @@ class PostsStore extends EventEmitter {
     this.fetchPostsEnd = this.fetchPostsEnd.bind(this);
     this.change = this.change.bind(this);
     this.addPost = this.addPost.bind(this);
+    this.delPost = this.delPost.bind(this);
     this.handleActions = this.handleActions.bind(this);
   }
 

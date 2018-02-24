@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {delPost} from '../../actions/posts-actions';
 
 export default class Post extends React.Component {
@@ -12,7 +11,11 @@ export default class Post extends React.Component {
             {this.props.body}
           </p>
         </div>
-        <button type="button" className="btn btn-outline-danger btn-sm" id={this.props.id}>Del</button>
+        <div id={this.props.id}>
+        <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => {
+          delPost(this.props.id)}}>Del</button>
+        <button type="button" className="btn btn-outline-secondary btn-sm">Edit</button>
+        </div>
       </div>
     )
   }
