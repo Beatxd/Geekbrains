@@ -10,7 +10,7 @@ export default class PageNotFound extends React.Component {
         <h4 className='center-children'>Sorry, an error has occured, Requested page not found!</h4>
         <div className='center more-space-p'>
           <Link to="/" className="btn btn-info btn-lg more-space-m">Take Me Home</Link>
-          <a href="#" className="btn btn-outline-secondary btn-lg more-space-m">Contact Support</a>
+          <a href="#" className="btn btn-outline-secondary btn-lg more-space-m">Report</a>
         </div>
       </div>
     )

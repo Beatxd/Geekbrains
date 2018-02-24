@@ -2,6 +2,7 @@ import React from 'react';
 
 //components
 import Posts from './blog-user-posts';
+import {blockFollower} from '../../actions/followers-actions';
 
 //data
 import data from '../../data/data';
@@ -12,7 +13,12 @@ export default class User extends React.Component {
       <div className="panel panel-default col-md-6 col-sm-12">
         <div className="panel-heading">
           <h3 className="panel-title">
-            {this.props.username}
+            {this.props.username} <button className="btn btn-outline-danger btn-sm" onClick={() => {
+            if (confirm("Do u want BLOCK " + this.props.username + "?")) {
+              blockFollower(this.props.id);
+            }
+          }}
+          >X</button>
           </h3>
         </div>
         <div className="panel-body">
