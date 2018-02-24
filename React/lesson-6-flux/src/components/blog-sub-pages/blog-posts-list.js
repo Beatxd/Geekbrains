@@ -13,7 +13,7 @@ export default class PostsList extends React.Component {
     });
 
     return (
-      <div>
+      <div className='posts-list'>
         {posts}
       </div>
     )

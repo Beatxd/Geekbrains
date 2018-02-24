@@ -3,7 +3,7 @@ import React from 'react';
 //components
 import PostsList from './blog-posts-list';
 import PostsStore from '../../stores/posts-store';
-import {addPost, fetchPosts} from '../../actions/posts-actions';
+import {addPost, fetchPosts, delPost} from '../../actions/posts-actions';
 
 export default class Posts extends React.Component {
   constructor() {
@@ -40,6 +40,12 @@ export default class Posts extends React.Component {
 
   componentDidMount() {
     fetchPosts();
+    document.querySelector('.content').addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn-outline-danger')){
+        console.log(e.target);
+        delPost(+e.target.id);
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -48,7 +54,7 @@ export default class Posts extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='content'>
         <h2 className='badge-light'>Your posts</h2>
         <div className='border-dark'>
           <div className="form-group">

@@ -36,33 +36,5 @@ const ColorSwitcherStyle = {
       #F2FEFF`,
   backgroundBlendMode: 'multiply'
 };
-const postsRow1 = [
-  {
-    header: <h4>Subheading</h4>,
-    text: <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-  },
-  {
-    header: <h4>Subheading</h4>,
-    text: <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-      fermentum.</p>
-  },
-  {
-    header: <h4>Subheading</h4>,
-    text: <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  }];
-const postsRow2 = [
-  {
-    header: <h4>Subheading</h4>,
-    text: <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-  },
-  {
-    header: <h4>Subheading</h4>,
-    text: <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-      fermentum.</p>
-  },
-  {
-    header: <h4>Subheading</h4>,
-    text: <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-  }];
 
-export default {jumbotronSwitcher: ColorSwitcherStyle, postsRow1: postsRow1, postsRow2: postsRow2, users: users, userPosts: userPosts};
+export default {jumbotronSwitcher: ColorSwitcherStyle, users: users, userPosts: userPosts};
