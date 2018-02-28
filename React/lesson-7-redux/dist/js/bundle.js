@@ -5014,11 +5014,7 @@ var RowMarketing = (_dec = (0, _reactRedux.connect)(function (store) {
       var loader = _react2.default.createElement(
         'div',
         { className: 'loader' },
-        _react2.default.createElement(
-          'div',
-          { className: 'loader_inner' },
-          ' '
-        )
+        _react2.default.createElement('div', { className: 'loader_inner' })
       );
 
       var posts = this.props.posts.map(function (post, index) {
@@ -5036,11 +5032,25 @@ var RowMarketing = (_dec = (0, _reactRedux.connect)(function (store) {
             post.body
           ),
           _react2.default.createElement(
+            'p',
+            null,
+            'post id: ' + post.id
+          ),
+          _react2.default.createElement(
             'button',
             { onClick: function onClick() {
                 _this2.props.dispatch((0, _postsActions.delPost)(post.id));
               } },
             'del'
+          ),
+          _react2.default.createElement(
+            'button',
+            { className: '', 'data-toggle': 'modal', 'data-target': '#editPostModal', onClick: function onClick() {
+                document.querySelector('#edit-post-theme').value = post.title;
+                document.querySelector('#edit-post-text').value = post.body;
+                document.querySelector('#edit-post-id').innerText = post.id;
+              } },
+            'edit'
           )
         );
       });
@@ -5054,9 +5064,103 @@ var RowMarketing = (_dec = (0, _reactRedux.connect)(function (store) {
           'Your posts'
         ),
         _react2.default.createElement(
+          'h4',
+          null,
+          'New post'
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('input', { type: 'text', placeholder: 'theme', id: 'new-post-theme' }),
+          _react2.default.createElement('input', { type: 'text', placeholder: 'text', id: 'new-post-text' }),
+          _react2.default.createElement('input', { type: 'button', value: 'Send', onClick: function onClick() {
+              var post = {
+                title: document.querySelector('#new-post-theme').value || 'empty theme',
+                body: document.querySelector('#new-post-text').value || 'empty body',
+                id: +_this2.props.posts[_this2.props.posts.length - 1].id + 1
+              };
+              _this2.props.dispatch((0, _postsActions.addPost)(post));
+            } })
+        ),
+        _react2.default.createElement(
           'div',
           { className: 'row marketing' },
           this.props.isFetching ? loader : this.props.posts.length ? posts : 'Нет пользователей'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'modal fade', id: 'editPostModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exampleModalLabel',
+            'aria-hidden': 'true' },
+          _react2.default.createElement(
+            'div',
+            { className: 'modal-dialog', role: 'document' },
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-content' },
+              _react2.default.createElement(
+                'div',
+                { className: 'modal-header' },
+                _react2.default.createElement(
+                  'h5',
+                  { className: 'modal-title' },
+                  'Edit post \u2116 ',
+                  _react2.default.createElement(
+                    'span',
+                    { id: 'edit-post-id' },
+                    ' '
+                  )
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                  _react2.default.createElement(
+                    'span',
+                    { 'aria-hidden': 'true' },
+                    '\xD7'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'modal-body' },
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'theme',
+                  _react2.default.createElement('br', null),
+                  _react2.default.createElement('input', { type: 'text', id: 'edit-post-theme' })
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'text',
+                  _react2.default.createElement('br', null),
+                  _react2.default.createElement('input', { type: 'text', id: 'edit-post-text' })
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'modal-footer' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', className: 'btn btn-secondary', 'data-dismiss': 'modal' },
+                  'Close'
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { type: 'button', className: 'btn btn-primary', 'data-dismiss': 'modal', onClick: function onClick() {
+                      var post = {
+                        title: document.querySelector('#edit-post-theme').value || 'empty theme',
+                        body: document.querySelector('#edit-post-text').value || 'empty body',
+                        id: document.querySelector('#edit-post-id').innerText
+                      };
+                      _this2.props.dispatch((0, _postsActions.editPost)(post));
+                    } },
+                  'Save changes'
+                )
+              )
+            )
+          )
         )
       );
     }
@@ -27936,9 +28040,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.postsReducer = postsReducer;
 
-var _posts = __webpack_require__(139);
+var _posts3 = __webpack_require__(139);
 
-var Posts = _interopRequireWildcard(_posts);
+var Posts = _interopRequireWildcard(_posts3);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -27969,6 +28073,24 @@ function postsReducer() {
           if (action.payload === post.id) arr.splice(i, 1);
         });
         state = _extends({}, state, { posts: posts });
+        break;
+      }
+    case Posts.ADD_POST:
+      {
+        var _posts = state.posts.concat(action.payload);
+        state = _extends({}, state, { posts: _posts });
+        break;
+      }
+    case Posts.EDIT_POST:
+      {
+        var _posts2 = state.posts.concat();
+        _posts2.forEach(function (post, i, arr) {
+          if (+action.payload.id === post.id) {
+            arr.splice(i, 1, action.payload);
+          }
+        });
+        state = _extends({}, state, { posts: _posts2 });
+        break;
       }
   }
 
@@ -27990,6 +28112,8 @@ var FETCH_POSTS_FULFILLED = exports.FETCH_POSTS_FULFILLED = 'FETCH_POSTS_FULFILL
 var FETCH_POSTS_REJECTED = exports.FETCH_POSTS_REJECTED = 'FETCH_POSTS_REJECTED';
 
 var DEL_POST = exports.DEL_POST = 'DEL_POST';
+var ADD_POST = exports.ADD_POST = 'ADD_POST';
+var EDIT_POST = exports.EDIT_POST = 'EDIT_POST';
 
 /***/ }),
 /* 140 */
@@ -45272,6 +45396,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchPosts = fetchPosts;
 exports.delPost = delPost;
+exports.addPost = addPost;
+exports.editPost = editPost;
 
 var _axios = __webpack_require__(35);
 
@@ -45290,6 +45416,20 @@ function delPost(id) {
   return {
     type: 'DEL_POST',
     payload: id
+  };
+}
+
+function addPost(obj) {
+  return {
+    type: 'ADD_POST',
+    payload: obj
+  };
+}
+
+function editPost(obj) {
+  return {
+    type: 'EDIT_POST',
+    payload: obj
   };
 }
 

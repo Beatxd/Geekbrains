@@ -13,3 +13,17 @@ export function delPost(id) {
     payload: id
   }
 }
+
+export function addPost(obj) {
+  return {
+    type: 'ADD_POST',
+    payload: obj
+  }
+}
+
+export function editPost(obj) {
+  return {
+    type: 'EDIT_POST',
+    payload: obj
+  }
+}
