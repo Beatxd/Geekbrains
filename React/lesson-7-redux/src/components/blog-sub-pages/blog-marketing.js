@@ -1,10 +1,11 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {fetchPosts} from '../../actions/posts-actions';
+import {fetchPosts, delPost} from '../../actions/posts-actions';
 
 // mixin for this.props.dispatch and store.
 @connect((store) => {
+
   return {
     users: store.users.users,
     isFetching: store.users.isFetching,
@@ -25,12 +26,13 @@ export default class RowMarketing extends React.Component {
         <div className="loader_inner"> </div>
       </div>
     );
-
+    
     let posts = this.props.posts.map((post, index) => {
       return (
         <div key={index}>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
+          <button onClick={() => {this.props.dispatch(delPost(post.id))}}>del</button>
         </div>)
     });
 

@@ -7,9 +7,9 @@ export function fetchPosts() {
   }
 }
 
-export function delPost() {
+export function delPost(id) {
   return {
     type: 'DEL_POST',
-    payload: [{title: 'any pos', body: 'body'}]
+    payload: id
   }
 }

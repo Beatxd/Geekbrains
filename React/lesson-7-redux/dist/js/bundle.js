@@ -4987,6 +4987,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // mixin for this.props.dispatch and store.
 var RowMarketing = (_dec = (0, _reactRedux.connect)(function (store) {
+
   return {
     users: store.users.users,
     isFetching: store.users.isFetching,
@@ -5008,6 +5009,8 @@ var RowMarketing = (_dec = (0, _reactRedux.connect)(function (store) {
   _createClass(RowMarketing, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var loader = _react2.default.createElement(
         'div',
         { className: 'loader' },
@@ -5031,6 +5034,13 @@ var RowMarketing = (_dec = (0, _reactRedux.connect)(function (store) {
             'p',
             null,
             post.body
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                _this2.props.dispatch((0, _postsActions.delPost)(post.id));
+              } },
+            'del'
           )
         );
       });
@@ -27952,6 +27962,14 @@ function postsReducer() {
         state = _extends({}, state, { isFetching: false, errorMessage: action.payload.message });
         break;
       }
+    case Posts.DEL_POST:
+      {
+        var posts = state.posts.concat();
+        posts.forEach(function (post, i, arr) {
+          if (action.payload === post.id) arr.splice(i, 1);
+        });
+        state = _extends({}, state, { posts: posts });
+      }
   }
 
   return state;
@@ -27970,6 +27988,8 @@ Object.defineProperty(exports, "__esModule", {
 var FETCH_POSTS_PENDING = exports.FETCH_POSTS_PENDING = 'FETCH_POSTS_PENDING';
 var FETCH_POSTS_FULFILLED = exports.FETCH_POSTS_FULFILLED = 'FETCH_POSTS_FULFILLED';
 var FETCH_POSTS_REJECTED = exports.FETCH_POSTS_REJECTED = 'FETCH_POSTS_REJECTED';
+
+var DEL_POST = exports.DEL_POST = 'DEL_POST';
 
 /***/ }),
 /* 140 */
@@ -45251,6 +45271,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.fetchPosts = fetchPosts;
+exports.delPost = delPost;
 
 var _axios = __webpack_require__(35);
 
@@ -45262,6 +45283,13 @@ function fetchPosts() {
   return {
     type: 'FETCH_POSTS',
     payload: _axios2.default.get('http://jsonplaceholder.typicode.com/posts?userId=1')
+  };
+}
+
+function delPost(id) {
+  return {
+    type: 'DEL_POST',
+    payload: id
   };
 }
 

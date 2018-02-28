@@ -14,6 +14,13 @@ export function postsReducer(state = {posts: [], isFetching: false}, action) {
       state = {...state, isFetching: false, errorMessage: action.payload.message};
       break;
     }
+    case Posts.DEL_POST: {
+      let posts = state.posts.concat();
+      posts.forEach((post, i, arr) => {
+        if (action.payload === post.id) arr.splice(i, 1);
+      });
+      state = {...state, posts: posts}
+    }
   }
 
   return state;
