@@ -6,11 +6,12 @@
   <title>Lesson 8 api</title>
 </head>
 <body>
-<form action="/users/add" class="user-create-form">
-  <input type="text" placeholder="name">
-  <input type="text" placeholder="age">
+<form action="/" class="user-create-form">
+  <input type="text" placeholder="name" class="user-create-form__name">
+  <input type="text" placeholder="age" class="user-create-form__age">
   <input type="button" value="Create" class="user-create-form__button">
 </form>
+<div class="users-list"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 </body>
