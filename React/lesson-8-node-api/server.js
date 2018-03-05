@@ -10,21 +10,20 @@ app
     let promise = getUsers;
     promise.then(
       (users) => {
-        console.log(users);
         fs.readFile('./frontend/index.html', (err, html) => {
           if (err) throw err;
           const $ = cheerio.load(html);
           users.forEach((user) => {
             $('.users-list').append(`
-              <div user-id=${user.id}>
+              <div>
                 <h2>${user.name}</h2>
                 <p>${user.age + ' years old'}</p>
-                <input type="button" value="edit">
+                <a href="/users/edit/${user.id}">Edit</a>
               </div>
             `)
           });
 
-          res.set('Content-Type', 'text/html');
+          // res.set('Content-Type', 'text/html');
           res.send($.html());
         });
       },
@@ -33,7 +32,30 @@ app
 
 
   })
-  // .post('/ajax', ajax)
+  .get('/users/edit/*', (req, res) => {
+    const userId = req.url.split('/').pop();
+    const user = require('./models/get-user');
+    let promise = user(userId);
+    promise.then(
+      user => {
+        user = user[0] || [];
+        fs.readFile('./frontend/html/edit-user.html', (err, html) => {
+          if (err) throw err;
+          const $ = cheerio.load(html);
+          $('.user-edit-form__name').val(user.name || '');
+          $('.user-edit-form__age').val(user.age || '');
+          $('.user-edit-form__button').attr('user-id', user.id || 0);
+
+          // res.set('Content-Type', 'text/html');
+          res.send($.html());
+        });
+      },
+      err => {
+        console.log(err)
+      }
+    );
+
+  })
   .listen(80);
 
 console.log("server was start at http://localhost:80/");

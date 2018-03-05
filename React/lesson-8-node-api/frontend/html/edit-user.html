@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 8 api</title>
+</head>
+<body>
+<div class="users"></div>
+<form action="/" class="user-edit-form">
+  <input type="text" placeholder="name" class="user-edit-form__name">
+  <input type="text" placeholder="age" class="user-edit-form__age">
+  <input type="button" value="Save" class="user-edit-form__button">
+</form>
+<a href="/">Go to users list</a>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  window.onload = () => {
+    console.log($('.user-edit-form__button').attr('user-id'));
+//    $.post()
+  }
+</script>
+</body>
+</html>
