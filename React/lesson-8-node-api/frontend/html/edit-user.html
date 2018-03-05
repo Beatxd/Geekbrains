@@ -15,8 +15,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   window.onload = () => {
-    console.log($('.user-edit-form__button').attr('user-id'));
-//    $.post()
+    const btn = $('.user-edit-form__button');
+    btn.click(() => {
+      let url = '/users/edit/' + btn.attr('user-id');
+      const posting = $.post(url, {
+        name: $('.user-edit-form__name').val(),
+        age: $('.user-edit-form__age').val()
+      });
+      posting.done((user) => {
+        //refill inputs
+        console.log(user);
+      })
+    });
+
   }
 </script>
 </body>

@@ -23,7 +23,7 @@ app
             `)
           });
 
-          // res.set('Content-Type', 'text/html');
+          res.set('Content-Type', 'text/html');
           res.send($.html());
         });
       },
@@ -46,7 +46,7 @@ app
           $('.user-edit-form__age').val(user.age || '');
           $('.user-edit-form__button').attr('user-id', user.id || 0);
 
-          // res.set('Content-Type', 'text/html');
+          res.set('Content-Type', 'text/html');
           res.send($.html());
         });
       },
@@ -55,6 +55,9 @@ app
       }
     );
 
+  })
+  .post('/users/edit/*', (req, res) => {
+    console.log(req.post);
   })
   .listen(80);
 
