@@ -64,7 +64,10 @@ app
   .post('/users/edit/*', (req, res) => {
     if (!req.body) return res.sendStatus(400);
       require('./models/edit-user')(req.body);
-    res.send('test');
+  })
+  .post('/users/add/', (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+    require('./models/add-user')(req.body);
   })
   .listen(80);
 

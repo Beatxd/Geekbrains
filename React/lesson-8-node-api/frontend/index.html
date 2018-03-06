@@ -14,10 +14,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   window.onload = () => {
-    $('.user-create-form__button').click((e) => {
-      console.log(e.target)
-    })
-  };
+    $('.user-create-form__button').click(() => {
+      const url = '/users/add/';
+      const data = {
+        name: $('.user-create-form__name').val(),
+        age: $('.user-create-form__age').val(),
+      };
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: data
+      })
+    });
+  }
 </script>
 </body>
 </html>
