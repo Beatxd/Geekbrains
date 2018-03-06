@@ -6,17 +6,13 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app
-  .use((req, res, next) => {
-    console.log('middleware', req.body);
-    next();
-  })
   .use(bodyParser.json())
-  .use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
-  .use(bodyParser.text({ type: 'text/html' }))
+  .use(bodyParser.urlencoded({
+    extended: true
+  }))
+  .use(bodyParser.text({type: 'text/html'}))
   .post('/users/edit/*', (req, res) => {
     if (!req.body) return res.sendStatus(400);
-    console.log(req.body.name, req.body.age);
-    console.log(req.body);
     res.send('test');
   })
   .get('/', (req, res) => {
