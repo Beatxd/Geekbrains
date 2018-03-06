@@ -11,6 +11,12 @@ app
     extended: true
   }))
   .use(bodyParser.text({type: 'text/html'}))
+  .use((req, res, next) => {
+    if (req.body && req.body.age) {
+      if (!isNum(req.body.age)) req.body.age = 0;
+    }
+    next();
+  })
   .get('/', (req, res) => {
     const getUsers = require('./models/get-users');
     let promise = getUsers;
@@ -63,7 +69,7 @@ app
   })
   .post('/users/edit/*', (req, res) => {
     if (!req.body) return res.sendStatus(400);
-      require('./models/edit-user')(req.body);
+    require('./models/edit-user')(req.body);
   })
   .post('/users/add/', (req, res) => {
     if (!req.body) return res.sendStatus(400);
@@ -72,3 +78,7 @@ app
   .listen(80);
 
 console.log("server was start at http://localhost:80/");
+
+function isNum(num){
+  return !isNaN(parseFloat(num)) && isFinite(num);
+}

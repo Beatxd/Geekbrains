@@ -12,7 +12,6 @@ module.exports = (body) => {
   });
 
   connection.connect();
-  console.log(body);
 
   const sql = `
     INSERT INTO users (name, age)
