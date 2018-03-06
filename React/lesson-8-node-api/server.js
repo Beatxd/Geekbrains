@@ -1,10 +1,24 @@
 const express = require('express');
 const fs = require('fs');
 const cheerio = require('cheerio');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 app
+  .use((req, res, next) => {
+    console.log('middleware', req.body);
+    next();
+  })
+  .use(bodyParser.json())
+  .use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+  .use(bodyParser.text({ type: 'text/html' }))
+  .post('/users/edit/*', (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+    console.log(req.body.name, req.body.age);
+    console.log(req.body);
+    res.send('test');
+  })
   .get('/', (req, res) => {
     const getUsers = require('./models/get-users');
     let promise = getUsers;
@@ -30,7 +44,6 @@ app
       error => console.log(error)
     );
 
-
   })
   .get('/users/edit/*', (req, res) => {
     const userId = req.url.split('/').pop();
@@ -55,9 +68,6 @@ app
       }
     );
 
-  })
-  .post('/users/edit/*', (req, res) => {
-    console.log(req.post);
   })
   .listen(80);
 

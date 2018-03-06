@@ -6,28 +6,29 @@
 </head>
 <body>
 <div class="users"></div>
-<form action="/" class="user-edit-form">
+<div>
   <input type="text" placeholder="name" class="user-edit-form__name">
   <input type="text" placeholder="age" class="user-edit-form__age">
   <input type="button" value="Save" class="user-edit-form__button">
-</form>
+</div>
 <a href="/">Go to users list</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
   window.onload = () => {
     const btn = $('.user-edit-form__button');
     btn.click(() => {
-      let url = '/users/edit/' + btn.attr('user-id');
-      const posting = $.post(url, {
+      const url = '/users/edit/' + btn.attr('user-id');
+      const data = {
         name: $('.user-edit-form__name').val(),
         age: $('.user-edit-form__age').val()
+      };
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: data
+//        success: success
       });
-      posting.done((user) => {
-        //refill inputs
-        console.log(user);
-      })
     });
-
   }
 </script>
 </body>
