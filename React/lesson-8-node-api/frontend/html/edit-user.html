@@ -20,7 +20,8 @@
       const url = '/users/edit/' + btn.attr('user-id');
       const data = {
         name: $('.user-edit-form__name').val(),
-        age: $('.user-edit-form__age').val()
+        age: $('.user-edit-form__age').val(),
+        id: btn.attr('user-id')
       };
       $.ajax({
         url: url,

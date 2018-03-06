@@ -11,10 +11,6 @@ app
     extended: true
   }))
   .use(bodyParser.text({type: 'text/html'}))
-  .post('/users/edit/*', (req, res) => {
-    if (!req.body) return res.sendStatus(400);
-    res.send('test');
-  })
   .get('/', (req, res) => {
     const getUsers = require('./models/get-users');
     let promise = getUsers;
@@ -64,6 +60,11 @@ app
       }
     );
 
+  })
+  .post('/users/edit/*', (req, res) => {
+    if (!req.body) return res.sendStatus(400);
+      require('./models/edit-user')(req.body);
+    res.send('test');
   })
   .listen(80);
 
